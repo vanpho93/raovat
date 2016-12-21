@@ -26750,11 +26750,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Rao vat com'
-	        ),
 	        _react2.default.createElement(_LeftNavList2.default, null)
 	      );
 	    }
@@ -27218,7 +27213,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemNavLeft = __webpack_require__(252);
+	var _ItemNavLeft = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"ItemNavLeft\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _ItemNavLeft2 = _interopRequireDefault(_ItemNavLeft);
 
@@ -27262,74 +27257,7 @@
 	exports.default = LeftNavList;
 
 /***/ },
-/* 252 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(8);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ItemNavLeft = function (_React$Component) {
-	  _inherits(ItemNavLeft, _React$Component);
-
-	  function ItemNavLeft() {
-	    _classCallCheck(this, ItemNavLeft);
-
-	    return _possibleConstructorReturn(this, (ItemNavLeft.__proto__ || Object.getPrototypeOf(ItemNavLeft)).apply(this, arguments));
-	  }
-
-	  _createClass(ItemNavLeft, [{
-	    key: "render",
-	    value: function render() {
-	      var _props = this.props,
-	          title = _props.title,
-	          listItem = _props.listItem;
-
-	      return _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          title
-	        ),
-	        _react2.default.createElement(
-	          "ul",
-	          { className: "list-item-left-nav" },
-	          listItem.map(function (e, i) {
-	            return _react2.default.createElement(
-	              "li",
-	              { key: i },
-	              e
-	            );
-	          })
-	        )
-	      );
-	    }
-	  }]);
-
-	  return ItemNavLeft;
-	}(_react2.default.Component);
-
-	exports.default = ItemNavLeft;
-
-/***/ },
+/* 252 */,
 /* 253 */
 /***/ function(module, exports) {
 

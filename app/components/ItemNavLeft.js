@@ -1,14 +1,18 @@
 import React from 'react';
 
 export default class ItemNavLeft extends React.Component{
-
+  constructor(props){
+    super(props);
+    this.state = {isShow: fasle}
+  }
   render(){
     let {title, listItem} = this.props;
     return (
+      var xhtml = this.state.isShow? listItem.map((e, i) => <li key={i}>{e}</li>):<p/>;
       <div>
-        <p>{title}</p>
+        <div><a>></a>{title}</div>
         <ul className="list-item-left-nav">
-          { listItem.map((e, i) => <li key={i}>{e}</li> )}
+          {xhml}
         </ul>
       </div>
     )
