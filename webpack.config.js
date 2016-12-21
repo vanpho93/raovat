@@ -22,7 +22,9 @@ module.exports = {
       RaoVat: 'app/components/RaoVat.js',
       TopNav: 'app/components/TopNav.js',
       About: 'app/components/About.js',
-      TuyenDung: 'app/components/TuyenDung.js'
+      TuyenDung: 'app/components/TuyenDung.js',
+      LeftNavList: 'app/components/LeftNavList.js',
+      ItemNavLeft: 'app/components/ItemNavLeft.js'
     }
   },
   module: {

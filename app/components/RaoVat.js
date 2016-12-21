@@ -1,10 +1,11 @@
 import React from 'react';
-
+import LeftNavList from 'LeftNavList';
 class RaoVat extends React.Component{
   render(){
     return (
       <div>
-        <h1>RaoVat Component</h1>
+        <p>Rao vat com</p>
+        <LeftNavList/>
       </div>
     )
   }

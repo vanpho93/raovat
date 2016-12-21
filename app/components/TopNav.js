@@ -8,9 +8,9 @@ export default class Main extends Component {
         <div className="top-bar-left">
           <ul className="menu">
             <li className="menu-text">raovat.vn</li>
-            <li><IndexLink to="/">Rao vat</IndexLink></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/tuyendung">Tuyen Dung</Link></li>
+            <li><IndexLink to="/" activeClassName="active">Rao vat</IndexLink></li>
+            <li><Link to="/about" activeClassName="active">About</Link></li>
+            <li><Link to="/tuyendung" activeClassName="active">Tuyen Dung</Link></li>
           </ul>
         </div>
         <div className="top-bar-right">
