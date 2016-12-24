@@ -4,9 +4,11 @@ import ViewMain from 'ViewMain';
 class RaoVat extends React.Component{
   render(){
     return (
-      <div className="row">
-        <LeftNavList/>
-        <ViewMain/>
+      <div className="columns">
+        <div className="row">
+          <LeftNavList/>
+          <ViewMain/>
+        </div>
       </div>
     )
   }

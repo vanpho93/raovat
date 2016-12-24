@@ -10,7 +10,9 @@ export default class Main extends Component {
     return (
       <div>
         <TopNav/>
-        {this.props.children}
+        <div className="row">
+          {this.props.children}
+        </div>
       </div>
     )
   }

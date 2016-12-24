@@ -109,15 +109,15 @@
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _About = __webpack_require__(243);
+	var _About = __webpack_require__(244);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _RaoVat = __webpack_require__(244);
+	var _RaoVat = __webpack_require__(245);
 
 	var _RaoVat2 = _interopRequireDefault(_RaoVat);
 
-	var _TuyenDung = __webpack_require__(248);
+	var _TuyenDung = __webpack_require__(249);
 
 	var _TuyenDung2 = _interopRequireDefault(_TuyenDung);
 
@@ -131,8 +131,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(249);
-	__webpack_require__(253);
+	__webpack_require__(250);
+	__webpack_require__(254);
 	$(document).foundation();
 
 	var App = function (_Component) {
@@ -21610,7 +21610,7 @@
 
 	var _ListProduct2 = _interopRequireDefault(_ListProduct);
 
-	var _ViewMain = __webpack_require__(255);
+	var _ViewMain = __webpack_require__(243);
 
 	var _ViewMain2 = _interopRequireDefault(_ViewMain);
 
@@ -21638,7 +21638,11 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_TopNav2.default, null),
-	        this.props.children
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          this.props.children
+	        )
 	      );
 	    }
 	  }]);
@@ -26722,6 +26726,55 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _SearchForm = __webpack_require__(256);
+
+	var _SearchForm2 = _interopRequireDefault(_SearchForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ViewMain = function (_React$Component) {
+	  _inherits(ViewMain, _React$Component);
+
+	  function ViewMain() {
+	    _classCallCheck(this, ViewMain);
+
+	    return _possibleConstructorReturn(this, (ViewMain.__proto__ || Object.getPrototypeOf(ViewMain)).apply(this, arguments));
+	  }
+
+	  _createClass(ViewMain, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'view-main small-10 large-10 medium-10 columns' },
+	        _react2.default.createElement(_SearchForm2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return ViewMain;
+	}(_react2.default.Component);
+
+	module.exports = ViewMain;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26760,7 +26813,7 @@
 	module.exports = About;
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26771,11 +26824,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LeftNavList = __webpack_require__(245);
+	var _LeftNavList = __webpack_require__(246);
 
 	var _LeftNavList2 = _interopRequireDefault(_LeftNavList);
 
-	var _ViewMain = __webpack_require__(255);
+	var _ViewMain = __webpack_require__(243);
 
 	var _ViewMain2 = _interopRequireDefault(_ViewMain);
 
@@ -26801,9 +26854,13 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
-	        _react2.default.createElement(_LeftNavList2.default, null),
-	        _react2.default.createElement(_ViewMain2.default, null)
+	        { className: 'columns' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement(_LeftNavList2.default, null),
+	          _react2.default.createElement(_ViewMain2.default, null)
+	        )
 	      );
 	    }
 	  }]);
@@ -26814,7 +26871,7 @@
 	module.exports = RaoVat;
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26829,11 +26886,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemNavLeft = __webpack_require__(246);
+	var _ItemNavLeft = __webpack_require__(247);
 
 	var _ItemNavLeft2 = _interopRequireDefault(_ItemNavLeft);
 
-	var _Group = __webpack_require__(247);
+	var _Group = __webpack_require__(248);
 
 	var _Group2 = _interopRequireDefault(_Group);
 
@@ -26873,7 +26930,7 @@
 	exports.default = LeftNavList;
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26957,7 +27014,7 @@
 	exports.default = ItemNavLeft;
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26978,7 +27035,7 @@
 	module.exports = arrayGroup;
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27027,16 +27084,16 @@
 	module.exports = TuyenDung;
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(250);
+	var content = __webpack_require__(251);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(252)(content, {});
+	var update = __webpack_require__(253)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27053,10 +27110,10 @@
 	}
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(251)();
+	exports = module.exports = __webpack_require__(252)();
 	// imports
 
 
@@ -27067,7 +27124,7 @@
 
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports) {
 
 	/*
@@ -27123,7 +27180,7 @@
 
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27375,16 +27432,16 @@
 
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(254);
+	var content = __webpack_require__(255);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(252)(content, {});
+	var update = __webpack_require__(253)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27401,21 +27458,21 @@
 	}
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(251)();
+	exports = module.exports = __webpack_require__(252)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\nview-main{\n  background: #000000;\n}\n", ""]);
+	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #000000;\n}\n\n.search-form{\n  margin-top: 40px;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27434,34 +27491,104 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ViewMain = function (_React$Component) {
-	  _inherits(ViewMain, _React$Component);
+	var SearchForm = function (_React$Component) {
+	  _inherits(SearchForm, _React$Component);
 
-	  function ViewMain() {
-	    _classCallCheck(this, ViewMain);
+	  function SearchForm() {
+	    _classCallCheck(this, SearchForm);
 
-	    return _possibleConstructorReturn(this, (ViewMain.__proto__ || Object.getPrototypeOf(ViewMain)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (SearchForm.__proto__ || Object.getPrototypeOf(SearchForm)).apply(this, arguments));
 	  }
 
-	  _createClass(ViewMain, [{
+	  _createClass(SearchForm, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "view-main small-10 large-10 medium-10 columns" },
+	        { className: "row search-form" },
 	        _react2.default.createElement(
-	          "h1",
-	          null,
-	          "ViewMain Component"
+	          "div",
+	          { className: "columns medium-4" },
+	          _react2.default.createElement("input", { type: "text", placeholder: "Search" })
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "columns medium-3" },
+	          _react2.default.createElement(
+	            "select",
+	            null,
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "--Chon danh muc--"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Dien thoai"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "May tinh"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Tivi"
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "columns medium-3" },
+	          _react2.default.createElement(
+	            "select",
+	            null,
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Chon dia diem"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Quan 1"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Quan 2"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Quan 3"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Quan 4"
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "columns medium-2" },
+	          _react2.default.createElement(
+	            "button",
+	            { className: "button" },
+	            "Tim kiem"
+	          )
 	        )
 	      );
 	    }
 	  }]);
 
-	  return ViewMain;
+	  return SearchForm;
 	}(_react2.default.Component);
 
-	module.exports = ViewMain;
+	module.exports = SearchForm;
 
 /***/ }
 /******/ ]);

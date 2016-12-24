@@ -6,6 +6,10 @@
   background: #F8F6F6;
 }
 
-view-main{
+.view-main{
   background: #000000;
+}
+
+.search-form{
+  margin-top: 40px;
 }
