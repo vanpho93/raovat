@@ -24,7 +24,12 @@ module.exports = {
       About: 'app/components/About.js',
       TuyenDung: 'app/components/TuyenDung.js',
       LeftNavList: 'app/components/LeftNavList.js',
-      ItemNavLeft: 'app/components/ItemNavLeft.js'
+      ItemNavLeft: 'app/components/ItemNavLeft.js',
+      ListProduct: 'app/components/ListProduct.js',
+      Product: 'app/components/Product.js',
+      SearchForm: 'app/components/SearchForm.js',
+      ShortForm: 'app/components/ShortForm.js',
+      ViewMain: 'app/components/ViewMain.js'
     }
   },
   module: {

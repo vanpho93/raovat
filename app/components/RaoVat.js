@@ -3,7 +3,7 @@ import LeftNavList from 'LeftNavList';
 class RaoVat extends React.Component{
   render(){
     return (
-      <div>
+      <div className="row">
         <LeftNavList/>
       </div>
     )

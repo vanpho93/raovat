@@ -1,3 +1,11 @@
 .active{
   font-weight: bold;
 }
+
+.nav-left{
+  background: #F8F6F6;
+}
+
+view-main{
+  background: #000000;
+}

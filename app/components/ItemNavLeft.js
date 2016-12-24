@@ -3,16 +3,21 @@ import React from 'react';
 export default class ItemNavLeft extends React.Component{
   constructor(props){
     super(props);
-    this.state = {isShow: fasle}
+    this.state = {isShow: true}
+  }
+  toggle(){
+    this.state.isShow = !this.state.isShow;
+    this.setState(this.state)
   }
   render(){
     let {title, listItem} = this.props;
+    let xhtml = this.state.isShow?null:listItem.map((e, i) => <li key={i}>{e}</li>);
+    let icon = this.state.isShow?"►":"▼";
     return (
-      var xhtml = this.state.isShow? listItem.map((e, i) => <li key={i}>{e}</li>):<p/>;
       <div>
-        <div><a>></a>{title}</div>
+        <div><a onClick={this.toggle.bind(this)}>{icon}</a>{title}</div>
         <ul className="list-item-left-nav">
-          {xhml}
+          {xhtml}
         </ul>
       </div>
     )

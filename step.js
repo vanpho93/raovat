@@ -6,10 +6,14 @@ I. Main
       2.1.1 ItemList
   3. BottomNav
 
-  4. MainApp
+  4. ViewMain
     1.1. SearchForm
     1.2. SortForm
     1.3. List
       1.3.1 Piece
   5. About
   6. User
+
+/*
+  Stop from what?
+*/
