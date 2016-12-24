@@ -10,8 +10,6 @@ export default class Main extends Component {
     return (
       <div>
         <TopNav/>
-        <ViewMain/>
-        <ListProduct/>
         {this.props.children}
       </div>
     )

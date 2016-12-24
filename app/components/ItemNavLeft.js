@@ -15,7 +15,7 @@ export default class ItemNavLeft extends React.Component{
     let icon = this.state.isShow?"►":"▼";
     return (
       <div>
-        <div><a onClick={this.toggle.bind(this)}>{icon}</a>{title}</div>
+        <div><span onClick={this.toggle.bind(this)}>{icon}</span>{title}</div>
         <ul className="list-item-left-nav">
           {xhtml}
         </ul>

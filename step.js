@@ -6,7 +6,7 @@ I. Main
       2.1.1 ItemList
   3. BottomNav
 
-  4. ViewMain
+  4. RaoVat
     1.1. SearchForm
     1.2. SortForm
     1.3. List

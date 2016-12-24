@@ -21638,8 +21638,6 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_TopNav2.default, null),
-	        _react2.default.createElement(_ViewMain2.default, null),
-	        _react2.default.createElement(_ListProduct2.default, null),
 	        this.props.children
 	      );
 	    }
@@ -26777,6 +26775,10 @@
 
 	var _LeftNavList2 = _interopRequireDefault(_LeftNavList);
 
+	var _ViewMain = __webpack_require__(255);
+
+	var _ViewMain2 = _interopRequireDefault(_ViewMain);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26800,7 +26802,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'row' },
-	        _react2.default.createElement(_LeftNavList2.default, null)
+	        _react2.default.createElement(_LeftNavList2.default, null),
+	        _react2.default.createElement(_ViewMain2.default, null)
 	      );
 	    }
 	  }]);
@@ -26933,7 +26936,7 @@
 	          "div",
 	          null,
 	          _react2.default.createElement(
-	            "a",
+	            "span",
 	            { onClick: this.toggle.bind(this) },
 	            icon
 	          ),
