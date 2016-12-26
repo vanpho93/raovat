@@ -7,9 +7,36 @@
 }
 
 .view-main{
-  background: #000000;
+  background: #D6E3ED;
 }
 
 .search-form{
   margin-top: 40px;
+}
+
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
+hr{
+  visibility: hidden;
+}
+
+.div-product, .img-product, .div-product-info{
+  float: left;
+  margin: 10px;
+}
+
+.product-wrapper{
+  border: solid #F4F4F4 1px;
+  margin-top: 10px;
+}
+
+.p-start-time{
+  float: right;
+}
+
+body{
+  background: #F8F6F6;
 }

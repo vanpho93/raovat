@@ -109,15 +109,15 @@
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _About = __webpack_require__(244);
+	var _About = __webpack_require__(246);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _RaoVat = __webpack_require__(245);
+	var _RaoVat = __webpack_require__(247);
 
 	var _RaoVat2 = _interopRequireDefault(_RaoVat);
 
-	var _TuyenDung = __webpack_require__(249);
+	var _TuyenDung = __webpack_require__(251);
 
 	var _TuyenDung2 = _interopRequireDefault(_TuyenDung);
 
@@ -131,8 +131,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(250);
-	__webpack_require__(254);
+	__webpack_require__(252);
+	__webpack_require__(256);
 	$(document).foundation();
 
 	var App = function (_Component) {
@@ -21610,7 +21610,7 @@
 
 	var _ListProduct2 = _interopRequireDefault(_ListProduct);
 
-	var _ViewMain = __webpack_require__(243);
+	var _ViewMain = __webpack_require__(244);
 
 	var _ViewMain2 = _interopRequireDefault(_ViewMain);
 
@@ -26673,6 +26673,61 @@
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Product = __webpack_require__(243);
+
+	var _Product2 = _interopRequireDefault(_Product);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ListProduct = function (_Component) {
+	  _inherits(ListProduct, _Component);
+
+	  function ListProduct() {
+	    _classCallCheck(this, ListProduct);
+
+	    return _possibleConstructorReturn(this, (ListProduct.__proto__ || Object.getPrototypeOf(ListProduct)).apply(this, arguments));
+	  }
+
+	  _createClass(ListProduct, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_Product2.default, null),
+	        _react2.default.createElement(_Product2.default, null),
+	        _react2.default.createElement(_Product2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return ListProduct;
+	}(_react.Component);
+
+	exports.default = ListProduct;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -26693,29 +26748,62 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ListProduct = function (_Component) {
-	  _inherits(ListProduct, _Component);
+	var Product = function (_Component) {
+	  _inherits(Product, _Component);
 
-	  function ListProduct() {
-	    _classCallCheck(this, ListProduct);
+	  function Product(props) {
+	    _classCallCheck(this, Product);
 
-	    return _possibleConstructorReturn(this, (ListProduct.__proto__ || Object.getPrototypeOf(ListProduct)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Product.__proto__ || Object.getPrototypeOf(Product)).call(this, props));
 	  }
 
-	  _createClass(ListProduct, [{
+	  _createClass(Product, [{
 	    key: "render",
 	    value: function render() {
-	      return _react2.default.createElement("div", { className: "list-product small-10 medium-10 large-10 columns" });
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "product-wrapper" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "div-product" },
+	          _react2.default.createElement("img", { src: "1.jpg", width: "50px", className: "img-product" }),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "div-product-info" },
+	            _react2.default.createElement(
+	              "a",
+	              { href: "" },
+	              "Nh banh va xich du"
+	            ),
+	            _react2.default.createElement(
+	              "div",
+	              null,
+	              "Gia: 5.000.000 d"
+	            ),
+	            _react2.default.createElement(
+	              "a",
+	              { href: "#" },
+	              "Sai gon"
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "p-start-time" },
+	          "4 phut truoc"
+	        ),
+	        _react2.default.createElement("hr", null)
+	      );
 	    }
 	  }]);
 
-	  return ListProduct;
+	  return Product;
 	}(_react.Component);
 
-	exports.default = ListProduct;
+	exports.default = Product;
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26726,9 +26814,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SearchForm = __webpack_require__(256);
+	var _SearchForm = __webpack_require__(245);
 
 	var _SearchForm2 = _interopRequireDefault(_SearchForm);
+
+	var _ListProduct = __webpack_require__(242);
+
+	var _ListProduct2 = _interopRequireDefault(_ListProduct);
+
+	var _Product = __webpack_require__(243);
+
+	var _Product2 = _interopRequireDefault(_Product);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26753,7 +26849,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'view-main small-10 large-10 medium-10 columns' },
-	        _react2.default.createElement(_SearchForm2.default, null)
+	        _react2.default.createElement(_SearchForm2.default, null),
+	        _react2.default.createElement(_ListProduct2.default, null)
 	      );
 	    }
 	  }]);
@@ -26764,7 +26861,126 @@
 	module.exports = ViewMain;
 
 /***/ },
-/* 244 */
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var SearchForm = function (_React$Component) {
+	  _inherits(SearchForm, _React$Component);
+
+	  function SearchForm() {
+	    _classCallCheck(this, SearchForm);
+
+	    return _possibleConstructorReturn(this, (SearchForm.__proto__ || Object.getPrototypeOf(SearchForm)).apply(this, arguments));
+	  }
+
+	  _createClass(SearchForm, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "row search-form" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "columns medium-4" },
+	          _react2.default.createElement("input", { type: "text", placeholder: "Search" })
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "columns medium-3" },
+	          _react2.default.createElement(
+	            "select",
+	            null,
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "--Chon danh muc--"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Dien thoai"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "May tinh"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Tivi"
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "columns medium-3" },
+	          _react2.default.createElement(
+	            "select",
+	            null,
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Chon dia diem"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Quan 1"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Quan 2"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Quan 3"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "Quan 4"
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "columns medium-2" },
+	          _react2.default.createElement(
+	            "button",
+	            { className: "button" },
+	            "Tim kiem"
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return SearchForm;
+	}(_react2.default.Component);
+
+	module.exports = SearchForm;
+
+/***/ },
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26813,7 +27029,7 @@
 	module.exports = About;
 
 /***/ },
-/* 245 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26824,11 +27040,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _LeftNavList = __webpack_require__(246);
+	var _LeftNavList = __webpack_require__(248);
 
 	var _LeftNavList2 = _interopRequireDefault(_LeftNavList);
 
-	var _ViewMain = __webpack_require__(243);
+	var _ViewMain = __webpack_require__(244);
 
 	var _ViewMain2 = _interopRequireDefault(_ViewMain);
 
@@ -26871,7 +27087,7 @@
 	module.exports = RaoVat;
 
 /***/ },
-/* 246 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26886,11 +27102,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemNavLeft = __webpack_require__(247);
+	var _ItemNavLeft = __webpack_require__(249);
 
 	var _ItemNavLeft2 = _interopRequireDefault(_ItemNavLeft);
 
-	var _Group = __webpack_require__(248);
+	var _Group = __webpack_require__(250);
 
 	var _Group2 = _interopRequireDefault(_Group);
 
@@ -26930,7 +27146,7 @@
 	exports.default = LeftNavList;
 
 /***/ },
-/* 247 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27014,7 +27230,7 @@
 	exports.default = ItemNavLeft;
 
 /***/ },
-/* 248 */
+/* 250 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27031,11 +27247,11 @@
 	var xeCo = new Group('Xe co', ['Xe may', 'Oto', 'Xe dap', 'Xe khac']);
 	var batDongSan = new Group('Bat dong san', ['Chung cu', 'Nha dat', 'Van phong']);
 	var doDienTu = new Group('Do dien tu', ['Dien thoai', 'May tinh bang', 'Laptop', 'Tivi']);
-	var arrayGroup = [xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu];
+	var arrayGroup = [xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu, doDienTu, xeCo, batDongSan, doDienTu, doDienTu, xeCo, batDongSan, doDienTu];
 	module.exports = arrayGroup;
 
 /***/ },
-/* 249 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27084,16 +27300,16 @@
 	module.exports = TuyenDung;
 
 /***/ },
-/* 250 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(251);
+	var content = __webpack_require__(253);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(253)(content, {});
+	var update = __webpack_require__(255)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27110,10 +27326,10 @@
 	}
 
 /***/ },
-/* 251 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(252)();
+	exports = module.exports = __webpack_require__(254)();
 	// imports
 
 
@@ -27124,7 +27340,7 @@
 
 
 /***/ },
-/* 252 */
+/* 254 */
 /***/ function(module, exports) {
 
 	/*
@@ -27180,7 +27396,7 @@
 
 
 /***/ },
-/* 253 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27432,16 +27648,16 @@
 
 
 /***/ },
-/* 254 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(255);
+	var content = __webpack_require__(257);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(253)(content, {});
+	var update = __webpack_require__(255)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27458,137 +27674,18 @@
 	}
 
 /***/ },
-/* 255 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(252)();
+	exports = module.exports = __webpack_require__(254)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #000000;\n}\n\n.search-form{\n  margin-top: 40px;\n}\n", ""]);
+	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n}\n\n.search-form{\n  margin-top: 40px;\n}\n\nhtml {\n    overflow: -moz-scrollbars-vertical;\n    overflow-y: scroll;\n}\n\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
 
 	// exports
 
-
-/***/ },
-/* 256 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(8);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var SearchForm = function (_React$Component) {
-	  _inherits(SearchForm, _React$Component);
-
-	  function SearchForm() {
-	    _classCallCheck(this, SearchForm);
-
-	    return _possibleConstructorReturn(this, (SearchForm.__proto__ || Object.getPrototypeOf(SearchForm)).apply(this, arguments));
-	  }
-
-	  _createClass(SearchForm, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "row search-form" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "columns medium-4" },
-	          _react2.default.createElement("input", { type: "text", placeholder: "Search" })
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "columns medium-3" },
-	          _react2.default.createElement(
-	            "select",
-	            null,
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "--Chon danh muc--"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Dien thoai"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "May tinh"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Tivi"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "columns medium-3" },
-	          _react2.default.createElement(
-	            "select",
-	            null,
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Chon dia diem"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Quan 1"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Quan 2"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Quan 3"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Quan 4"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "columns medium-2" },
-	          _react2.default.createElement(
-	            "button",
-	            { className: "button" },
-	            "Tim kiem"
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return SearchForm;
-	}(_react2.default.Component);
-
-	module.exports = SearchForm;
 
 /***/ }
 /******/ ]);
