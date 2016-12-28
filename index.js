@@ -6,3 +6,4 @@ app.use(express.static('public'));
 
 app.listen(process.env.PORT || 3000, () => console.log('Server started'))
 app.get('/', (req, res) => res.render('home'));
+app.get('/api/:id', require('./controller/getId.js'));

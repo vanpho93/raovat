@@ -125,6 +125,10 @@
 
 	var _DangTin2 = _interopRequireDefault(_DangTin);
 
+	var _ChiTiet = __webpack_require__(253);
+
+	var _ChiTiet2 = _interopRequireDefault(_ChiTiet);
+
 	var _reactRouter = __webpack_require__(187);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -135,8 +139,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(253);
-	__webpack_require__(257);
+	__webpack_require__(254);
+	__webpack_require__(258);
 	$(document).foundation();
 
 	var App = function (_Component) {
@@ -160,7 +164,8 @@
 	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _RaoVat2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'tuyendung', component: _TuyenDung2.default }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'dangtin', component: _DangTin2.default })
+	          _react2.default.createElement(_reactRouter.Route, { path: 'dangtin', component: _DangTin2.default }),
+	          _react2.default.createElement(_reactRouter.Route, { path: 'chitiet', component: _ChiTiet2.default })
 	        )
 	      );
 	    }
@@ -21723,7 +21728,16 @@
 	              null,
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/about', activeClassName: 'active' },
+	                { to: '/chitiet', activeClassName: 'active' },
+	                'Chi tiet'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/lienhe', activeClassName: 'active' },
 	                'Li\xEAn h\u1EC7'
 	              )
 	            ),
@@ -21735,15 +21749,6 @@
 	                { to: '/tuyendung', activeClassName: 'active' },
 	                'Tuy\u1EC3n d\u1EE5ng'
 	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/DangTin', activeClassName: 'active' },
-	                '\u0110\u0103ng tin'
-	              )
 	            )
 	          )
 	        ),
@@ -21753,6 +21758,15 @@
 	          _react2.default.createElement(
 	            'ul',
 	            { className: 'menu' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/dangtin', activeClassName: 'active' },
+	                '\u0110\u0103ng tin'
+	              )
+	            ),
 	            _react2.default.createElement(
 	              'li',
 	              null,
@@ -26745,7 +26759,7 @@
 /* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -26756,6 +26770,8 @@
 	var _react = __webpack_require__(8);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(187);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26775,41 +26791,41 @@
 	  }
 
 	  _createClass(Product, [{
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "product-wrapper" },
+	        'div',
+	        { className: 'product-wrapper' },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "div-product" },
-	          _react2.default.createElement("img", { src: "1.jpg", width: "50px", className: "img-product" }),
+	          'div',
+	          { className: 'div-product' },
+	          _react2.default.createElement('img', { src: '1.jpg', width: '50px', className: 'img-product' }),
 	          _react2.default.createElement(
-	            "div",
-	            { className: "div-product-info" },
+	            'div',
+	            { className: 'div-product-info' },
 	            _react2.default.createElement(
-	              "a",
-	              { href: "" },
-	              "Nh banh va xich du"
+	              _reactRouter.Link,
+	              { to: '/chitiet?id=10' },
+	              'Nh banh va xich du'
 	            ),
 	            _react2.default.createElement(
-	              "div",
+	              'div',
 	              null,
-	              "Gia: 5.000.000 d"
+	              'Gia: 5.000.000 d'
 	            ),
 	            _react2.default.createElement(
-	              "a",
-	              { href: "#" },
-	              "Sai gon"
+	              'a',
+	              { href: '#' },
+	              'Sai gon'
 	            )
 	          )
 	        ),
 	        _react2.default.createElement(
-	          "p",
-	          { className: "p-start-time" },
-	          "4 phut truoc"
+	          'p',
+	          { className: 'p-start-time' },
+	          '4 phut truoc'
 	        ),
-	        _react2.default.createElement("hr", null)
+	        _react2.default.createElement('hr', null)
 	      );
 	    }
 	  }]);
@@ -27369,13 +27385,114 @@
 /* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ChiTiet = function (_Component) {
+	  _inherits(ChiTiet, _Component);
+
+	  function ChiTiet(props) {
+	    _classCallCheck(this, ChiTiet);
+
+	    var _this = _possibleConstructorReturn(this, (ChiTiet.__proto__ || Object.getPrototypeOf(ChiTiet)).call(this, props));
+
+	    _this.state = { id: 10000 };
+	    return _this;
+	  }
+
+	  _createClass(ChiTiet, [{
+	    key: 'render',
+	    value: function render() {
+	      var sanPham = this.state.sanPham;
+
+	      var xhtml = sanPham == undefined ? _react2.default.createElement(
+	        'div',
+	        null,
+	        this.state.id
+	      ) : _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          sanPham.tieuDe
+	        ),
+	        _react2.default.createElement('img', { src: sanPham.hinh, width: '200px' }),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          sanPham.moTa
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          sanPham.gia
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          sanPham.nguoiDang
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'So dien thoai: ' + sanPham.sdt
+	        )
+	      );
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'small-8 medium-6 large-4 columns small-centered' },
+	        xhtml
+	      );
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      var id = this.props.location.query.id;
+	      $.get('/api/' + id, function (data) {
+	        _this2.state.sanPham = data;
+	        _this2.setState(_this2.state);
+	        console.log('data');
+	      });
+	    }
+	  }]);
+
+	  return ChiTiet;
+	}(_react.Component);
+
+	exports.default = ChiTiet;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(254);
+	var content = __webpack_require__(255);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(256)(content, {});
+	var update = __webpack_require__(257)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27392,10 +27509,10 @@
 	}
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(255)();
+	exports = module.exports = __webpack_require__(256)();
 	// imports
 
 
@@ -27406,7 +27523,7 @@
 
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports) {
 
 	/*
@@ -27462,7 +27579,7 @@
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27714,16 +27831,16 @@
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(258);
+	var content = __webpack_require__(259);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(256)(content, {});
+	var update = __webpack_require__(257)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27740,15 +27857,15 @@
 	}
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(255)();
+	exports = module.exports = __webpack_require__(256)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
+	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
 
 	// exports
 

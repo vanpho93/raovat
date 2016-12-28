@@ -30,7 +30,8 @@ module.exports = {
       SearchForm: 'app/components/SearchForm.js',
       ShortForm: 'app/components/ShortForm.js',
       ViewMain: 'app/components/ViewMain.js',
-      DangTin: 'app/components/DangTin.js'
+      DangTin: 'app/components/DangTin.js',
+      ChiTiet: 'app/components/ChiTiet.js'
     }
   },
   module: {
