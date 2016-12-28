@@ -10,4 +10,7 @@ export default class ListProduct extends Component {
       </div>
     )
   }
+  componentDidMount(){
+    
+  }
 }

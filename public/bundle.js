@@ -121,6 +121,10 @@
 
 	var _TuyenDung2 = _interopRequireDefault(_TuyenDung);
 
+	var _DangTin = __webpack_require__(252);
+
+	var _DangTin2 = _interopRequireDefault(_DangTin);
+
 	var _reactRouter = __webpack_require__(187);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -131,8 +135,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(252);
-	__webpack_require__(256);
+	__webpack_require__(253);
+	__webpack_require__(257);
 	$(document).foundation();
 
 	var App = function (_Component) {
@@ -155,7 +159,8 @@
 	          { path: '/', component: _Main2.default },
 	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _RaoVat2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'tuyendung', component: _TuyenDung2.default })
+	          _react2.default.createElement(_reactRouter.Route, { path: 'tuyendung', component: _TuyenDung2.default }),
+	          _react2.default.createElement(_reactRouter.Route, { path: 'dangtin', component: _DangTin2.default })
 	        )
 	      );
 	    }
@@ -21702,7 +21707,7 @@
 	            _react2.default.createElement(
 	              'li',
 	              { className: 'menu-text' },
-	              'raovat.vn'
+	              _react2.default.createElement('img', { width: '30px', src: 'icon.png' })
 	            ),
 	            _react2.default.createElement(
 	              'li',
@@ -21710,7 +21715,7 @@
 	              _react2.default.createElement(
 	                _reactRouter.IndexLink,
 	                { to: '/', activeClassName: 'active' },
-	                'Rao vat'
+	                'Rao v\u1EB7t'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -21719,7 +21724,7 @@
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: '/about', activeClassName: 'active' },
-	                'About'
+	                'Li\xEAn h\u1EC7'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -21728,7 +21733,16 @@
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: '/tuyendung', activeClassName: 'active' },
-	                'Tuyen Dung'
+	                'Tuy\u1EC3n d\u1EE5ng'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/DangTin', activeClassName: 'active' },
+	                '\u0110\u0103ng tin'
 	              )
 	            )
 	          )
@@ -26717,6 +26731,9 @@
 	        _react2.default.createElement(_Product2.default, null)
 	      );
 	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {}
 	  }]);
 
 	  return ListProduct;
@@ -26848,7 +26865,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'view-main small-10 large-10 medium-10 columns' },
+	        { className: 'view-main large-10 medium-8 columns' },
 	        _react2.default.createElement(_SearchForm2.default, null),
 	        _react2.default.createElement(_ListProduct2.default, null)
 	      );
@@ -27132,7 +27149,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'nav-left small-2 medium-2 large-2 columns float-left' },
+	        { className: 'nav-left medium-4 large-2 columns float-left hide-for-small-only' },
 	        _Group2.default.map(function (e, i) {
 	          return _react2.default.createElement(_ItemNavLeft2.default, { title: e.title, listItem: e.listItem, key: i });
 	        })
@@ -27303,13 +27320,62 @@
 /* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DangTin = function (_React$Component) {
+	  _inherits(DangTin, _React$Component);
+
+	  function DangTin() {
+	    _classCallCheck(this, DangTin);
+
+	    return _possibleConstructorReturn(this, (DangTin.__proto__ || Object.getPrototypeOf(DangTin)).apply(this, arguments));
+	  }
+
+	  _createClass(DangTin, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'DangTin Component'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DangTin;
+	}(_react2.default.Component);
+
+	module.exports = DangTin;
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(253);
+	var content = __webpack_require__(254);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(255)(content, {});
+	var update = __webpack_require__(256)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27326,10 +27392,10 @@
 	}
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(254)();
+	exports = module.exports = __webpack_require__(255)();
 	// imports
 
 
@@ -27340,7 +27406,7 @@
 
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports) {
 
 	/*
@@ -27396,7 +27462,7 @@
 
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27648,16 +27714,16 @@
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(257);
+	var content = __webpack_require__(258);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(255)(content, {});
+	var update = __webpack_require__(256)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27674,15 +27740,15 @@
 	}
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(254)();
+	exports = module.exports = __webpack_require__(255)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n}\n\n.search-form{\n  margin-top: 40px;\n}\n\nhtml {\n    overflow: -moz-scrollbars-vertical;\n    overflow-y: scroll;\n}\n\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
+	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
 
 	// exports
 

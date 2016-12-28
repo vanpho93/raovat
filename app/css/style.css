@@ -8,17 +8,14 @@
 
 .view-main{
   background: #D6E3ED;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .search-form{
   margin-top: 40px;
 }
-
-html {
-    overflow: -moz-scrollbars-vertical;
-    overflow-y: scroll;
-}
-
 hr{
   visibility: hidden;
 }

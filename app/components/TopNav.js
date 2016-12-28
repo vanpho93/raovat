@@ -7,10 +7,11 @@ export default class Main extends Component {
       <div className="top-bar">
         <div className="top-bar-left">
           <ul className="menu">
-            <li className="menu-text">raovat.vn</li>
-            <li><IndexLink to="/" activeClassName="active">Rao vat</IndexLink></li>
-            <li><Link to="/about" activeClassName="active">About</Link></li>
-            <li><Link to="/tuyendung" activeClassName="active">Tuyen Dung</Link></li>
+            <li className="menu-text"><img width="30px" src="icon.png"/></li>
+            <li><IndexLink to="/" activeClassName="active">Rao vặt</IndexLink></li>
+            <li><Link to="/about" activeClassName="active">Liên hệ</Link></li>
+            <li><Link to="/tuyendung" activeClassName="active">Tuyển dụng</Link></li>
+            <li><Link to="/DangTin" activeClassName="active">Đăng tin</Link></li>
           </ul>
         </div>
         <div className="top-bar-right">

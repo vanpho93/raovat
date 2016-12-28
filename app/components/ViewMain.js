@@ -5,7 +5,7 @@ import Product from 'Product';
 class ViewMain extends React.Component{
   render(){
     return (
-      <div className="view-main small-10 large-10 medium-10 columns">
+      <div className="view-main large-10 medium-8 columns">
         <SearchForm/>
         <ListProduct/>
       </div>

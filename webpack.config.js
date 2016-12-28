@@ -29,7 +29,8 @@ module.exports = {
       Product: 'app/components/Product.js',
       SearchForm: 'app/components/SearchForm.js',
       ShortForm: 'app/components/ShortForm.js',
-      ViewMain: 'app/components/ViewMain.js'
+      ViewMain: 'app/components/ViewMain.js',
+      DangTin: 'app/components/DangTin.js'
     }
   },
   module: {
