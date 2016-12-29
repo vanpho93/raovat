@@ -18,5 +18,10 @@
   <body>
     <textarea id="txt" rows="8" cols="40"></textarea>
     <button id="btn-exec">EXEC</button>
+    <br><br><br>
+    <form action="/testUpload" method="post" enctype="multipart/form-data">
+      <input type="file" name="avatar">
+      <input type="submit" name="name" value="Submit">
+    </form>
   </body>
 </html>

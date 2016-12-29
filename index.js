@@ -21,3 +21,4 @@ app.post('/xulysql', parser, (req, res) => {
     res.send(result.rows);
   });
 });
+app.post('/testUpload', require('./controller/testUpload.js'));
