@@ -12,25 +12,30 @@ export default class ChiTiet extends Component {
       {this.state.id}
     </div>
     :<div>
-      <h1>{sanPham.tieuDe}</h1>
-      <img src={sanPham.hinh} width="200px"/>
-      <p>{sanPham.moTa}</p>
-      <h3>{sanPham.gia}</h3>
-      <h3>{sanPham.nguoiDang}</h3>
-      <p>{'So dien thoai: '+sanPham.sdt}</p>
+      <h1>{sanPham.title}</h1>
+      <img src={sanPham.image} width="200px"/>
+      <p>{sanPham.description}</p>
+      <h3>{sanPham.price}</h3>
+      <h3>{sanPham.name}</h3>
+      <p>{sanPham.address}</p>
+      <p>{'So dien thoai: '+sanPham.phone}</p>
     </div>
     return (
-      <div className="small-8 medium-6 large-4 columns small-centered">
+      <div className="small-8 medium-8 large-8 columns small-centered">
         {xhtml}
       </div>
     )
   }
   componentDidMount(){
     var id = this.props.location.query.id;
-    $.get('/api/' + id, data => {
-      this.state.sanPham = data;
-      this.setState(this.state);
-      console.log('data');
-    });
+    if(id){
+      $.get('/api/getById/' + id, data => {
+        this.state.sanPham = data;
+        this.setState(this.state);
+        console.log(data);
+      });
+    }else{
+      window.location = '/#/';
+    }
   }
 }

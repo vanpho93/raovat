@@ -6,17 +6,18 @@ export default class Product extends Component {
     super(props);
   }
   render(){
+    var {id, title, description, name, phone, image, address, price, postTime} = this.props.info;
     return (
       <div className="product-wrapper">
         <div className="div-product">
-          <img src="1.jpg" width="50px" className="img-product"/>
+          <img src={image} width="50px" className="img-product"/>
           <div className="div-product-info">
-            <Link to="/chitiet?id=10">Nh banh va xich du</Link>
-            <div>Gia: 5.000.000 d</div>
-            <a href="#">Sai gon</a>
+            <Link to={"/chitiet?id=" + id}>{title}</Link>
+            <div>Gia: {price} d</div>
+            <a href="#">{address}</a>
           </div>
         </div>
-        <p className="p-start-time">4 phut truoc</p>
+        <p className="p-start-time">{postTime}</p>
         <hr/>
       </div>
     )

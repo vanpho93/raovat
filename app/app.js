@@ -18,7 +18,7 @@ class App extends Component {
       <Router history={hashHistory}>
         <Route path="/" component={Main}>
           <IndexRoute component={RaoVat}/>
-          <Route path="about" component={About}/>
+          <Route path="lienhe" component={About}/>
           <Route path="tuyendung" component={TuyenDung}/>
           <Route path="dangtin" component={DangTin}/>
           <Route path="chitiet" component={ChiTiet}/>

@@ -162,7 +162,7 @@
 	          _reactRouter.Route,
 	          { path: '/', component: _Main2.default },
 	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _RaoVat2.default }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
+	          _react2.default.createElement(_reactRouter.Route, { path: 'lienhe', component: _About2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'tuyendung', component: _TuyenDung2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'dangtin', component: _DangTin2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'chitiet', component: _ChiTiet2.default })
@@ -26701,7 +26701,7 @@
 /* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -26728,32 +26728,45 @@
 	var ListProduct = function (_Component) {
 	  _inherits(ListProduct, _Component);
 
-	  function ListProduct() {
+	  function ListProduct(props) {
 	    _classCallCheck(this, ListProduct);
 
-	    return _possibleConstructorReturn(this, (ListProduct.__proto__ || Object.getPrototypeOf(ListProduct)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (ListProduct.__proto__ || Object.getPrototypeOf(ListProduct)).call(this, props));
+
+	    _this.state = { mang: [] };
+	    return _this;
 	  }
 
 	  _createClass(ListProduct, [{
 	    key: 'render',
 	    value: function render() {
+	      var mang = this.state.mang;
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_Product2.default, null),
-	        _react2.default.createElement(_Product2.default, null),
-	        _react2.default.createElement(_Product2.default, null)
+	        mang.map(function (e) {
+	          return _react2.default.createElement(_Product2.default, { key: e.id, info: e });
+	        })
 	      );
 	    }
 	  }, {
 	    key: 'componentDidMount',
-	    value: function componentDidMount() {}
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      $.get('/api/all', function (data) {
+	        _this2.state.mang = data;
+	        _this2.setState(_this2.state);
+	      });
+	    }
 	  }]);
 
 	  return ListProduct;
 	}(_react.Component);
 
 	exports.default = ListProduct;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
 /* 243 */
@@ -26793,37 +26806,50 @@
 	  _createClass(Product, [{
 	    key: 'render',
 	    value: function render() {
+	      var _props$info = this.props.info,
+	          id = _props$info.id,
+	          title = _props$info.title,
+	          description = _props$info.description,
+	          name = _props$info.name,
+	          phone = _props$info.phone,
+	          image = _props$info.image,
+	          address = _props$info.address,
+	          price = _props$info.price,
+	          postTime = _props$info.postTime;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'product-wrapper' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'div-product' },
-	          _react2.default.createElement('img', { src: '1.jpg', width: '50px', className: 'img-product' }),
+	          _react2.default.createElement('img', { src: image, width: '50px', className: 'img-product' }),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'div-product-info' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/chitiet?id=10' },
-	              'Nh banh va xich du'
+	              { to: "/chitiet?id=" + id },
+	              title
 	            ),
 	            _react2.default.createElement(
 	              'div',
 	              null,
-	              'Gia: 5.000.000 d'
+	              'Gia: ',
+	              price,
+	              ' d'
 	            ),
 	            _react2.default.createElement(
 	              'a',
 	              { href: '#' },
-	              'Sai gon'
+	              address
 	            )
 	          )
 	        ),
 	        _react2.default.createElement(
 	          'p',
 	          { className: 'p-start-time' },
-	          '4 phut truoc'
+	          postTime
 	        ),
 	        _react2.default.createElement('hr', null)
 	      );
@@ -27432,33 +27458,38 @@
 	        _react2.default.createElement(
 	          'h1',
 	          null,
-	          sanPham.tieuDe
+	          sanPham.title
 	        ),
-	        _react2.default.createElement('img', { src: sanPham.hinh, width: '200px' }),
+	        _react2.default.createElement('img', { src: sanPham.image, width: '200px' }),
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          sanPham.moTa
+	          sanPham.description
 	        ),
 	        _react2.default.createElement(
 	          'h3',
 	          null,
-	          sanPham.gia
+	          sanPham.price
 	        ),
 	        _react2.default.createElement(
 	          'h3',
 	          null,
-	          sanPham.nguoiDang
+	          sanPham.name
 	        ),
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          'So dien thoai: ' + sanPham.sdt
+	          sanPham.address
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'So dien thoai: ' + sanPham.phone
 	        )
 	      );
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'small-8 medium-6 large-4 columns small-centered' },
+	        { className: 'small-8 medium-8 large-8 columns small-centered' },
 	        xhtml
 	      );
 	    }
@@ -27468,11 +27499,15 @@
 	      var _this2 = this;
 
 	      var id = this.props.location.query.id;
-	      $.get('/api/' + id, function (data) {
-	        _this2.state.sanPham = data;
-	        _this2.setState(_this2.state);
-	        console.log('data');
-	      });
+	      if (id) {
+	        $.get('/api/getById/' + id, function (data) {
+	          _this2.state.sanPham = data;
+	          _this2.setState(_this2.state);
+	          console.log(data);
+	        });
+	      } else {
+	        window.location = '/#/';
+	      }
 	    }
 	  }]);
 
