@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var parser = require('body-parser').urlencoded({extended: false});
-
+var {query} = require('./db.js');
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -14,3 +14,10 @@ app.get('/api/category', require('./controller/getCategory.js'));
 app.get('/api/getByTieuMuc/:id', require('./controller/getByTieuMuc.js'));
 app.post('/api/search/', parser, require('./controller/getBySearch.js'));
 app.post('/xulydangtin', require('./controller/xulydangtin.js'));
+app.get('/query', (req, res) => res.render(query));
+app.post('/xulysql', parser, (req, res) => {
+  query(req.body.sql, (err, result) => {
+    if(err) return console.log(err + '');
+    console.log(result.rows);
+  });
+});
