@@ -45,4 +45,11 @@ function getProduct(id, cb){
   query('SELECT * FROM "RaoVat" WHERE id = ' + id, cb);
 }
 
-module.exports = {getListProduct, getProduct, insertDB, getCategory};
+function getProductByTieuMuc(id, cb){
+  query('SELECT * FROM "RaoVat" WHERE "idTieuMuc" = ' + id, cb);
+}
+
+function getProductSearch(text, cb){
+  query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%'`, cb)
+}
+module.exports = {getListProduct, getProduct, insertDB, getCategory, getProductByTieuMuc, getProductSearch};

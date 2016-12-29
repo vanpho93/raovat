@@ -4,6 +4,7 @@ export default class ListProduct extends Component {
   constructor(props){
     super(props);
     this.state = {mang: []};
+    that = this;
   }
   render(){
     var {mang} = this.state;

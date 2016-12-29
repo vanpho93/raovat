@@ -1,32 +1,40 @@
 var {getCategory} = require('../db.js');
 module.exports = (req, res) => {
-  getCategory((err, result) => {
-    var arrGroup = xylu(result.rows);
-    res.send(arrGroup);
-  });
+  if(mangGroup.length == 0){
+    getCategory((err, result) => {
+        initGroup(result.rows);
+        addData(result.rows);
+      res.send(mangGroup);
+    });
+  }else{
+    res.send(mangGroup);
+  }
 }
 
-//Get all separater
-function getAllSep(arrayObject, sepProps){
-  var mang = [];
-  arrayObject.forEach(e => {
-    if(mang.indexOf(e[sep]) == -1){
-      mang.push(e[sep]);
-    }
-  });
-  return mang;
+function Group(title){
+  this.title = title;
+  this.listItem = [];
 }
 
-function Group(groupName, listItem){
-  this.groupName = groupName;
-  this.listItem = listItem;
+function Item(id, tieuMuc){
+  this.id = id;
+  this.tieuMuc = tieuMuc;
 }
 
 var mangGroup = [];
-var mangIdDanhMuc = [1, 2, 3, 4, 5];
 
-function addToGroup(arrRaw){
-  arrRaw.forEach(e => {
+function initGroup(arrRaw){
+  arrRaw.forEach(raw => {
+    if(mangGroup.findIndex(e => e.title == raw.tenDanhMuc) == -1){
+      mangGroup.push(new Group(raw.tenDanhMuc));
+    }
+  });
+}
 
-  })
+function addData(arrRaw){
+  arrRaw.forEach(raw => {
+    var index = mangGroup.findIndex(e => e.title == raw.tenDanhMuc);
+    var {id, tenTieuMuc} = raw;
+    mangGroup[index].listItem.push(new Item(id, tenTieuMuc));
+  });
 }

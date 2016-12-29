@@ -117,15 +117,15 @@
 
 	var _RaoVat2 = _interopRequireDefault(_RaoVat);
 
-	var _TuyenDung = __webpack_require__(251);
+	var _TuyenDung = __webpack_require__(250);
 
 	var _TuyenDung2 = _interopRequireDefault(_TuyenDung);
 
-	var _DangTin = __webpack_require__(252);
+	var _DangTin = __webpack_require__(251);
 
 	var _DangTin2 = _interopRequireDefault(_DangTin);
 
-	var _ChiTiet = __webpack_require__(253);
+	var _ChiTiet = __webpack_require__(252);
 
 	var _ChiTiet2 = _interopRequireDefault(_ChiTiet);
 
@@ -139,8 +139,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(254);
-	__webpack_require__(258);
+	__webpack_require__(253);
+	__webpack_require__(257);
 	$(document).foundation();
 
 	var App = function (_Component) {
@@ -21729,7 +21729,7 @@
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: '/chitiet', activeClassName: 'active' },
-	                'Chi tiet'
+	                'Chi ti\u1EBFt'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -26734,6 +26734,7 @@
 	    var _this = _possibleConstructorReturn(this, (ListProduct.__proto__ || Object.getPrototypeOf(ListProduct)).call(this, props));
 
 	    _this.state = { mang: [] };
+	    that = _this;
 	    return _this;
 	  }
 
@@ -26923,7 +26924,7 @@
 /* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -26949,84 +26950,97 @@
 	  }
 
 	  _createClass(SearchForm, [{
-	    key: "render",
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      $.post('/api/search', { text: this.refs.txt.value }, function (data) {
+	        that.state.mang = data;
+	        that.setState(that.state);
+	      });
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "row search-form" },
+	        'form',
+	        { onSubmit: this.handleSubmit.bind(this) },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "columns medium-4" },
-	          _react2.default.createElement("input", { type: "text", placeholder: "Search" })
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "columns medium-3" },
+	          'div',
+	          { className: 'row search-form' },
 	          _react2.default.createElement(
-	            "select",
-	            null,
+	            'div',
+	            { className: 'columns medium-4' },
+	            _react2.default.createElement('input', { type: 'text', placeholder: 'Search', ref: 'txt' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'columns medium-3' },
 	            _react2.default.createElement(
-	              "option",
+	              'select',
 	              null,
-	              "--Chon danh muc--"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Dien thoai"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "May tinh"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Tivi"
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                '--Chon danh muc--'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'Dien thoai'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'May tinh'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'Tivi'
+	              )
 	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "columns medium-3" },
+	          ),
 	          _react2.default.createElement(
-	            "select",
-	            null,
+	            'div',
+	            { className: 'columns medium-3' },
 	            _react2.default.createElement(
-	              "option",
+	              'select',
 	              null,
-	              "Chon dia diem"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Quan 1"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Quan 2"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Quan 3"
-	            ),
-	            _react2.default.createElement(
-	              "option",
-	              null,
-	              "Quan 4"
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'Chon dia diem'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'Quan 1'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'Quan 2'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'Quan 3'
+	              ),
+	              _react2.default.createElement(
+	                'option',
+	                null,
+	                'Quan 4'
+	              )
 	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "columns medium-2" },
+	          ),
 	          _react2.default.createElement(
-	            "button",
-	            { className: "button" },
-	            "Tim kiem"
+	            'div',
+	            { className: 'columns medium-2' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'button', type: 'submit' },
+	              'Tim kiem'
+	            )
 	          )
 	        )
 	      );
@@ -27037,6 +27051,7 @@
 	}(_react2.default.Component);
 
 	module.exports = SearchForm;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
 /* 246 */
@@ -27149,7 +27164,7 @@
 /* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27165,10 +27180,6 @@
 
 	var _ItemNavLeft2 = _interopRequireDefault(_ItemNavLeft);
 
-	var _Group = __webpack_require__(250);
-
-	var _Group2 = _interopRequireDefault(_Group);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27180,22 +27191,37 @@
 	var LeftNavList = function (_React$Component) {
 	  _inherits(LeftNavList, _React$Component);
 
-	  function LeftNavList() {
+	  function LeftNavList(props) {
 	    _classCallCheck(this, LeftNavList);
 
-	    return _possibleConstructorReturn(this, (LeftNavList.__proto__ || Object.getPrototypeOf(LeftNavList)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (LeftNavList.__proto__ || Object.getPrototypeOf(LeftNavList)).call(this, props));
+
+	    _this.state = { arrayGroup: [] };
+	    return _this;
 	  }
 
 	  _createClass(LeftNavList, [{
 	    key: 'render',
 	    value: function render() {
+	      var arrayGroup = this.state.arrayGroup;
+
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'nav-left medium-4 large-2 columns float-left hide-for-small-only' },
-	        _Group2.default.map(function (e, i) {
-	          return _react2.default.createElement(_ItemNavLeft2.default, { title: e.title, listItem: e.listItem, key: i });
+	        arrayGroup.map(function (e, i) {
+	          return _react2.default.createElement(_ItemNavLeft2.default, { title: e.title, listItem: e.listItem, key: e.title });
 	        })
 	      );
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      $.get('/api/category', function (data) {
+	        _this2.state.arrayGroup = data;
+	        _this2.setState(_this2.state);
+	      });
 	    }
 	  }]);
 
@@ -27203,12 +27229,13 @@
 	}(_react2.default.Component);
 
 	exports.default = LeftNavList;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
 /* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function($) {"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -27249,15 +27276,23 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
+	      var _this2 = this;
+
 	      var _props = this.props,
 	          title = _props.title,
 	          listItem = _props.listItem;
 
-	      var xhtml = this.state.isShow ? null : listItem.map(function (e, i) {
+	      var xhtml = this.state.isShow ? null : listItem.map(function (e) {
 	        return _react2.default.createElement(
-	          "li",
-	          { key: i },
-	          e
+	          "div",
+	          { key: e.id },
+	          _react2.default.createElement(
+	            "a",
+	            { onClick: function onClick() {
+	                _this2.getList(e.id);
+	              } },
+	            e.tieuMuc
+	          )
 	        );
 	      });
 	      var icon = this.state.isShow ? "►" : "▼";
@@ -27281,36 +27316,24 @@
 	        )
 	      );
 	    }
+	  }, {
+	    key: "getList",
+	    value: function getList(id) {
+	      $.get('/api/getByTieuMuc/' + id, function (data) {
+	        that.state.mang = data;
+	        that.setState(that.state);
+	      });
+	    }
 	  }]);
 
 	  return ItemNavLeft;
 	}(_react2.default.Component);
 
 	exports.default = ItemNavLeft;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
 /* 250 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Group = function Group(title, listItem) {
-	  _classCallCheck(this, Group);
-
-	  this.title = title;
-	  this.listItem = listItem;
-	};
-
-	var xeCo = new Group('Xe co', ['Xe may', 'Oto', 'Xe dap', 'Xe khac']);
-	var batDongSan = new Group('Bat dong san', ['Chung cu', 'Nha dat', 'Van phong']);
-	var doDienTu = new Group('Do dien tu', ['Dien thoai', 'May tinh bang', 'Laptop', 'Tivi']);
-	var arrayGroup = [xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu, xeCo, batDongSan, doDienTu, doDienTu, xeCo, batDongSan, doDienTu, doDienTu, xeCo, batDongSan, doDienTu];
-	module.exports = arrayGroup;
-
-/***/ },
-/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27359,7 +27382,7 @@
 	module.exports = TuyenDung;
 
 /***/ },
-/* 252 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27408,7 +27431,7 @@
 	module.exports = DangTin;
 
 /***/ },
-/* 253 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -27518,16 +27541,16 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 254 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(255);
+	var content = __webpack_require__(254);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(257)(content, {});
+	var update = __webpack_require__(256)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27544,10 +27567,10 @@
 	}
 
 /***/ },
-/* 255 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(256)();
+	exports = module.exports = __webpack_require__(255)();
 	// imports
 
 
@@ -27558,7 +27581,7 @@
 
 
 /***/ },
-/* 256 */
+/* 255 */
 /***/ function(module, exports) {
 
 	/*
@@ -27614,7 +27637,7 @@
 
 
 /***/ },
-/* 257 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27866,16 +27889,16 @@
 
 
 /***/ },
-/* 258 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(259);
+	var content = __webpack_require__(258);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(257)(content, {});
+	var update = __webpack_require__(256)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27892,10 +27915,10 @@
 	}
 
 /***/ },
-/* 259 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(256)();
+	exports = module.exports = __webpack_require__(255)();
 	// imports
 
 

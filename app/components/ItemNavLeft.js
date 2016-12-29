@@ -11,7 +11,11 @@ export default class ItemNavLeft extends React.Component{
   }
   render(){
     let {title, listItem} = this.props;
-    let xhtml = this.state.isShow?null:listItem.map((e, i) => <li key={i}>{e}</li>);
+    let xhtml = this.state.isShow?null:listItem.map(e =>
+      <div key={e.id}>
+        <a onClick={()=>{this.getList(e.id)}}>{e.tieuMuc}</a>
+      </div>
+    );
     let icon = this.state.isShow?"►":"▼";
     return (
       <div>
@@ -21,5 +25,11 @@ export default class ItemNavLeft extends React.Component{
         </ul>
       </div>
     )
+  }
+  getList(id){
+    $.get('/api/getByTieuMuc/' + id, data => {
+      that.state.mang = data;
+      that.setState(that.state);
+    })
   }
 }

@@ -1,11 +1,19 @@
 import React from 'react';
 
 class SearchForm extends React.Component{
+  handleSubmit(e){
+    e.preventDefault();
+    $.post('/api/search', {text: this.refs.txt.value}, data => {
+      that.state.mang = data;
+      that.setState(that.state);
+    });
+  }
   render(){
     return (
+      <form onSubmit={this.handleSubmit.bind(this)}>
       <div className="row search-form">
         <div className="columns medium-4">
-          <input type="text" placeholder="Search"/>
+          <input type="text" placeholder="Search" ref="txt"/>
         </div>
         <div className="columns medium-3">
           <select>
@@ -25,9 +33,10 @@ class SearchForm extends React.Component{
           </select>
         </div>
         <div className="columns medium-2">
-          <button className="button">Tim kiem</button>
+          <button className="button" type="submit">Tim kiem</button>
         </div>
       </div>
+    </form>
     )
   }
 }

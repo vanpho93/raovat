@@ -9,7 +9,7 @@ export default class Main extends Component {
           <ul className="menu">
             <li className="menu-text"><img width="30px" src="icon.png"/></li>
             <li><IndexLink to="/" activeClassName="active">Rao vặt</IndexLink></li>
-            <li><Link to="/chitiet" activeClassName="active">Chi tiet</Link></li>
+            <li><Link to="/chitiet" activeClassName="active">Chi tiết</Link></li>
             <li><Link to="/lienhe" activeClassName="active">Liên hệ</Link></li>
             <li><Link to="/tuyendung" activeClassName="active">Tuyển dụng</Link></li>
           </ul>
