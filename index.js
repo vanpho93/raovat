@@ -17,7 +17,7 @@ app.post('/xulydangtin', require('./controller/xulydangtin.js'));
 app.get('/query', (req, res) => res.render('query'));
 app.post('/xulysql', parser, (req, res) => {
   query(req.body.sql, (err, result) => {
-    if(err) return console.log(err + '');
-    console.log(result.rows);
+    if(err) return res.send(err + '');
+    res.send(result.rows);
   });
 });
