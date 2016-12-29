@@ -27414,17 +27414,75 @@
 	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "form",
-	        { action: "/xulydangtin", method: "post", encType: "multipart/form-data" },
-	        _react2.default.createElement("input", { type: "text", name: "username", placeholder: "Username" }),
-	        _react2.default.createElement("br", null),
-	        _react2.default.createElement("input", { type: "password", name: "password", placeholder: "Password" }),
-	        _react2.default.createElement("br", null),
-	        _react2.default.createElement("input", { type: "text", name: "email", placeholder: "Email" }),
-	        _react2.default.createElement("br", null),
-	        _react2.default.createElement("input", { type: "file", name: "avatar" }),
-	        _react2.default.createElement("br", null),
-	        _react2.default.createElement("input", { type: "submit", value: "Submit" })
+	        "div",
+	        { className: "small-8 small-centered columns" },
+	        _react2.default.createElement(
+	          "h1",
+	          { className: "title-dang-tin text-center" },
+	          "\u0110\u0103ng tin rao v\u1EB7t"
+	        ),
+	        _react2.default.createElement(
+	          "form",
+	          { action: "/xulydangtin", method: "post", encType: "multipart/form-data" },
+	          _react2.default.createElement("input", { type: "text", name: "title", placeholder: "Ti\xEAu \u0111\u1EC1" }),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("textarea", { rows: "5", placeholder: "Mo ta", name: "description" }),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("input", { type: "text", name: "address", placeholder: "\u0110\u1ECBa ch\u1EC9" }),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("input", { type: "text", name: "price", placeholder: "Gia" }),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("input", { type: "text", name: "name", placeholder: "Ten" }),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("input", { type: "text", name: "phone", placeholder: "So dien thoai" }),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement(
+	            "select",
+	            { name: "district" },
+	            _react2.default.createElement(
+	              "option",
+	              null,
+	              "--Quan, huyen--"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "1" },
+	              "Quan 1"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "2" },
+	              "Quan 2"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "3" },
+	              "Quan 3"
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "select",
+	            { name: "tieuMuc" },
+	            _react2.default.createElement(
+	              "option",
+	              { value: "1" },
+	              "Oto"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "2" },
+	              "Xe may"
+	            ),
+	            _react2.default.createElement(
+	              "option",
+	              { value: "3" },
+	              "Xe dap"
+	            )
+	          ),
+	          _react2.default.createElement("input", { type: "file", name: "avatar" }),
+	          _react2.default.createElement("br", null),
+	          _react2.default.createElement("input", { type: "submit", className: "expanded button", value: "Submit" })
+	        )
 	      );
 	    }
 	  }]);
@@ -27927,7 +27985,7 @@
 
 
 	// module
-	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
+	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\n.title-dang-tin{\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
 
 	// exports
 
