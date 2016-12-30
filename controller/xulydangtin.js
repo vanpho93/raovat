@@ -11,7 +11,7 @@ module.exports = (req, res) => {
     insertDB(title, description, name, phone, filename, price, address,
       district, tieuMuc, (err, result) => {
       if(err) return res.send(err+'');
-      else res.send(filename);
+      res.redirect('/');
     })
   });
 };
