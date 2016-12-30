@@ -45,7 +45,7 @@ function insertDB(title, desc, name, phone, image, price, address, idDistrict, i
 }
 
 function getListProduct(cb){
-  query('SELECT * FROM "RaoVat"', cb);
+  query('SELECT * FROM "RaoVat" ORDER BY "postTime" DESC', cb);
 }
 
 function getCategory(cb){
@@ -55,14 +55,14 @@ ON "TieuMuc"."idDanhMuc" = "DanhMuc"."id"`,cb);
 }
 
 function getProduct(id, cb){
-  query('SELECT * FROM "RaoVat" WHERE id = ' + id, cb);
+  query('SELECT * FROM "RaoVat" WHERE id = ' + id + 'ORDER BY "postTime" DESC', cb);
 }
 
 function getProductByTieuMuc(id, cb){
-  query('SELECT * FROM "RaoVat" WHERE "idTieuMuc" = ' + id, cb);
+  query('SELECT * FROM "RaoVat" WHERE "idTieuMuc" = ' + id + 'ORDER BY "postTime" DESC', cb);
 }
 
 function getProductSearch(text, cb){
-  query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%'`, cb)
+  query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%' + 'ORDER BY "postTime" DESC'`, cb)
 }
 module.exports = {query, getListProduct, getProduct, insertDB, getCategory, getProductByTieuMuc, getProductSearch};
