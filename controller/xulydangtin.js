@@ -4,15 +4,14 @@ module.exports = (req, res) => {
   upload(req, res, err => {
     if(err) return res.send(err + '');
     var {title, description, address, price, district, tieuMuc, name, phone} = req.body;
+    var filename = '';
     if(req.file){
-      var {filename} = req.file;
-    }else{
-      var filename = ''
+      filename = req.file.filename;
     }
     insertDB(title, description, name, phone, filename, price, address,
       district, tieuMuc, (err, result) => {
       if(err) return res.send(err);
     })
-    res.redirect('/');
+    res.send(filename);
   });
 };
