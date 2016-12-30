@@ -10,7 +10,7 @@ module.exports = (req, res) => {
     }
     insertDB(title, description, name, phone, filename, price, address,
       district, tieuMuc, (err, result) => {
-      if(err) return res.send(err+'');
+      if(err) return res.send('Vui long kiem tra lai thong tin');
       res.redirect('/');
     })
   });
