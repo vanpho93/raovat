@@ -18,7 +18,7 @@ app.get('/query', (req, res) => res.render('query'));
 app.post('/xulysql', parser, (req, res) => {
   query(req.body.sql, (err, result) => {
     if(err) return res.send(err + '');
-    res.send(result.rows);
+    res.json(result.rows);
   });
 });
 app.post('/testUpload', require('./controller/testUpload.js'));
