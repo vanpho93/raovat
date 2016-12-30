@@ -31,7 +31,11 @@ module.exports = {
       ShortForm: 'app/components/ShortForm.js',
       ViewMain: 'app/components/ViewMain.js',
       DangTin: 'app/components/DangTin.js',
-      ChiTiet: 'app/components/ChiTiet.js'
+      ChiTiet: 'app/components/ChiTiet.js',
+      TaiKhoan: 'app/components/TaiKhoan.js',
+      DangKy: 'app/components/DangKy.js',
+      DangNhap: 'app/components/DangNhap.js',
+      ThongTinTaiKhoan: 'app/components/ThongTinTaiKhoan.js'
     }
   },
   module: {

@@ -3,9 +3,9 @@ import React from 'react';
 class SearchForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
-    $.post('/api/search', {text: this.refs.txt.value}, data => {
-      console.log(data);
-      that.state.mang = data;
+    $.post('/api/search', {text: this.refs.txt.value}, info => {
+      console.log(info);
+      that.state.mang = info;
       that.setState(that.state);
     });
   }

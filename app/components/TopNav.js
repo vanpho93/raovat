@@ -11,12 +11,13 @@ export default class Main extends Component {
             <li><IndexLink to="/" activeClassName="active">Rao vặt</IndexLink></li>
             <li><Link to="/chitiet" activeClassName="active">Chi tiết</Link></li>
             <li><Link to="/lienhe" activeClassName="active">Liên hệ</Link></li>
-            <li><Link to="/tuyendung" activeClassName="active">Tuyển dụng</Link></li>
+            <li><Link to="/tuyendung" activeClassName="active">Giới thiệu</Link></li>
           </ul>
         </div>
         <div className="top-bar-right">
           <ul className="menu">
             <li><Link to="/dangtin" activeClassName="active">Đăng tin</Link></li>
+            <li><Link to="/taikhoan/dangnhap" activeClassName="active">Tài khoản</Link></li>
             <li><input type="search" placeholder="Search"/></li>
             <li><button type="button" className="button">Search</button></li>
           </ul>

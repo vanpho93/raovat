@@ -129,6 +129,10 @@
 
 	var _ChiTiet2 = _interopRequireDefault(_ChiTiet);
 
+	var _TaiKhoan = __webpack_require__(253);
+
+	var _TaiKhoan2 = _interopRequireDefault(_TaiKhoan);
+
 	var _reactRouter = __webpack_require__(187);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -139,9 +143,14 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(253);
-	__webpack_require__(257);
+	__webpack_require__(256);
+	__webpack_require__(260);
 	$(document).foundation();
+
+	var checkLogin = function checkLogin(nextState, replace, next) {
+	  console.log('Enter here');
+	  next();
+	};
 
 	var App = function (_Component) {
 	  _inherits(App, _Component);
@@ -165,7 +174,8 @@
 	          _react2.default.createElement(_reactRouter.Route, { path: 'lienhe', component: _About2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'tuyendung', component: _TuyenDung2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'dangtin', component: _DangTin2.default }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'chitiet', component: _ChiTiet2.default })
+	          _react2.default.createElement(_reactRouter.Route, { path: 'chitiet', component: _ChiTiet2.default }),
+	          _react2.default.createElement(_reactRouter.Route, { path: 'taikhoan/:com', component: _TaiKhoan2.default, onEnter: checkLogin })
 	        )
 	      );
 	    }
@@ -21747,7 +21757,7 @@
 	              _react2.default.createElement(
 	                _reactRouter.Link,
 	                { to: '/tuyendung', activeClassName: 'active' },
-	                'Tuy\u1EC3n d\u1EE5ng'
+	                'Gi\u1EDBi thi\u1EC7u'
 	              )
 	            )
 	          )
@@ -21765,6 +21775,15 @@
 	                _reactRouter.Link,
 	                { to: '/dangtin', activeClassName: 'active' },
 	                '\u0110\u0103ng tin'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/taikhoan/dangnhap', activeClassName: 'active' },
+	                'T\xE0i kho\u1EA3n'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -26953,9 +26972,9 @@
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
-	      $.post('/api/search', { text: this.refs.txt.value }, function (data) {
-	        console.log(data);
-	        that.state.mang = data;
+	      $.post('/api/search', { text: this.refs.txt.value }, function (info) {
+	        console.log(info);
+	        that.state.mang = info;
 	        that.setState(that.state);
 	      });
 	    }
@@ -27607,13 +27626,221 @@
 /* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(187);
+
+	var _DangKy = __webpack_require__(254);
+
+	var _DangKy2 = _interopRequireDefault(_DangKy);
+
+	var _DangNhap = __webpack_require__(255);
+
+	var _DangNhap2 = _interopRequireDefault(_DangNhap);
+
+	var _ThongTinTaiKhoan = __webpack_require__(262);
+
+	var _ThongTinTaiKhoan2 = _interopRequireDefault(_ThongTinTaiKhoan);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TaiKhoan = function (_React$Component) {
+	  _inherits(TaiKhoan, _React$Component);
+
+	  function TaiKhoan() {
+	    _classCallCheck(this, TaiKhoan);
+
+	    return _possibleConstructorReturn(this, (TaiKhoan.__proto__ || Object.getPrototypeOf(TaiKhoan)).apply(this, arguments));
+	  }
+
+	  _createClass(TaiKhoan, [{
+	    key: 'render',
+	    value: function render() {
+	      var xhtml;
+	      switch (this.props.params.com) {
+	        case 'dangnhap':
+	          xhtml = _react2.default.createElement(_DangNhap2.default, null);
+	          break;
+	        case 'dangky':
+	          xhtml = _react2.default.createElement(_DangKy2.default, null);
+	          break;
+	        default:
+	          xhtml = _react2.default.createElement(_ThongTinTaiKhoan2.default, null);
+	          break;
+	      }
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'small-6 small-centered' },
+	        xhtml
+	      );
+	    }
+	  }]);
+
+	  return TaiKhoan;
+	}(_react2.default.Component);
+
+	module.exports = TaiKhoan;
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DangKy = function (_React$Component) {
+	  _inherits(DangKy, _React$Component);
+
+	  function DangKy() {
+	    _classCallCheck(this, DangKy);
+
+	    return _possibleConstructorReturn(this, (DangKy.__proto__ || Object.getPrototypeOf(DangKy)).apply(this, arguments));
+	  }
+
+	  _createClass(DangKy, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "form",
+	          null,
+	          _react2.default.createElement(
+	            "h1",
+	            { className: "title-tai-khoan text-center" },
+	            "\u0110\u0103ng k\xFD t\xE0i kho\u1EA3n"
+	          ),
+	          _react2.default.createElement("input", { type: "text", placeholder: "username" }),
+	          _react2.default.createElement("input", { type: "text", placeholder: "password" }),
+	          _react2.default.createElement("input", { type: "text", placeholder: "Nh\u1EADp l\u1EA1i m\u1EADt kh\u1EA9u" }),
+	          _react2.default.createElement("input", { type: "text", placeholder: "S\u1ED1 \u0111i\u1EC7n tho\u1EA1i" }),
+	          _react2.default.createElement("input", { type: "text", placeholder: "\u0110\u1ECBa ch\u1EC9" }),
+	          _react2.default.createElement(
+	            "button",
+	            { type: "submit", className: "button expanded" },
+	            "\u0110\u0103ng nh\u1EADp"
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DangKy;
+	}(_react2.default.Component);
+
+	module.exports = DangKy;
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(187);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DangNhap = function (_React$Component) {
+	  _inherits(DangNhap, _React$Component);
+
+	  function DangNhap() {
+	    _classCallCheck(this, DangNhap);
+
+	    return _possibleConstructorReturn(this, (DangNhap.__proto__ || Object.getPrototypeOf(DangNhap)).apply(this, arguments));
+	  }
+
+	  _createClass(DangNhap, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'form',
+	          null,
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'title-tai-khoan text-center' },
+	            '\u0110\u0103ng nh\u1EADp'
+	          ),
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'username' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'password' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'expanded button', type: 'submit' },
+	            '\u0110\u0103ng nh\u1EADp'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'B\u1EA1n ch\u01B0a c\xF3 t\xE0i kho\u1EA3n? ',
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: 'taikhoan/dangky' },
+	              '\u0110\u0103ng k\xFD'
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DangNhap;
+	}(_react2.default.Component);
+
+	module.exports = DangNhap;
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(254);
+	var content = __webpack_require__(257);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(256)(content, {});
+	var update = __webpack_require__(259)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27630,10 +27857,10 @@
 	}
 
 /***/ },
-/* 254 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(255)();
+	exports = module.exports = __webpack_require__(258)();
 	// imports
 
 
@@ -27644,7 +27871,7 @@
 
 
 /***/ },
-/* 255 */
+/* 258 */
 /***/ function(module, exports) {
 
 	/*
@@ -27700,7 +27927,7 @@
 
 
 /***/ },
-/* 256 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27952,16 +28179,16 @@
 
 
 /***/ },
-/* 257 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(258);
+	var content = __webpack_require__(261);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(256)(content, {});
+	var update = __webpack_require__(259)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27978,18 +28205,67 @@
 	}
 
 /***/ },
-/* 258 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(255)();
+	exports = module.exports = __webpack_require__(258)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\n.title-dang-tin{\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
+	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\n.title-dang-tin, .title-tai-khoan{\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
 
 	// exports
 
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ThongTinTaiKhoan = function (_React$Component) {
+	  _inherits(ThongTinTaiKhoan, _React$Component);
+
+	  function ThongTinTaiKhoan() {
+	    _classCallCheck(this, ThongTinTaiKhoan);
+
+	    return _possibleConstructorReturn(this, (ThongTinTaiKhoan.__proto__ || Object.getPrototypeOf(ThongTinTaiKhoan)).apply(this, arguments));
+	  }
+
+	  _createClass(ThongTinTaiKhoan, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Th\xF4ng tin t\xE0i kho\u1EA3n'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ThongTinTaiKhoan;
+	}(_react2.default.Component);
+
+	module.exports = ThongTinTaiKhoan;
 
 /***/ }
 /******/ ]);

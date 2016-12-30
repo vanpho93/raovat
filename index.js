@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+app.use(require('./controller/middleware'));
 var parser = require('body-parser').urlencoded({extended: false});
 var {query} = require('./db.js');
 
@@ -22,3 +23,6 @@ app.post('/xulysql', parser, (req, res) => {
   });
 });
 app.post('/testUpload', require('./controller/testUpload.js'));
+app.post('/dangnhap', parser, require('./controller/dangnhap.js'));
+app.post('/dangky', parser, require('./controller/dangky.js'));
+app.get('/check', require('./controller/checkLogin.js'));
