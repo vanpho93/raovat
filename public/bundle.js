@@ -26954,6 +26954,7 @@
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
 	      $.post('/api/search', { text: this.refs.txt.value }, function (data) {
+	        console.log(data);
 	        that.state.mang = data;
 	        that.setState(that.state);
 	      });

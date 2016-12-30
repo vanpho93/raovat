@@ -4,6 +4,7 @@ class SearchForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     $.post('/api/search', {text: this.refs.txt.value}, data => {
+      console.log(data);
       that.state.mang = data;
       that.setState(that.state);
     });
