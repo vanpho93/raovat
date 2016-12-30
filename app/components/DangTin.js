@@ -9,7 +9,7 @@ class DangTin extends React.Component{
           <input type="text" name="title" placeholder="Tiêu đề" /><br/>
           <textarea rows="5" placeholder="Mo ta" name="description"/><br/>
           <input type="text" name="address" placeholder="Địa chỉ" /><br/>
-          <input type="text" name="price" placeholder="Gia" /><br/>
+          <input type="number" name="price" placeholder="Gia" /><br/>
           <input type="text" name="name" placeholder="Ten" /><br/>
           <input type="text" name="phone" placeholder="So dien thoai" /><br/>
           <select name="district">

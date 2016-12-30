@@ -27430,7 +27430,7 @@
 	          _react2.default.createElement("br", null),
 	          _react2.default.createElement("input", { type: "text", name: "address", placeholder: "\u0110\u1ECBa ch\u1EC9" }),
 	          _react2.default.createElement("br", null),
-	          _react2.default.createElement("input", { type: "text", name: "price", placeholder: "Gia" }),
+	          _react2.default.createElement("input", { type: "number", name: "price", placeholder: "Gia" }),
 	          _react2.default.createElement("br", null),
 	          _react2.default.createElement("input", { type: "text", name: "name", placeholder: "Ten" }),
 	          _react2.default.createElement("br", null),
