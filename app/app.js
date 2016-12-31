@@ -15,7 +15,13 @@ $(document).foundation();
 
 var checkLogin = (nextState, replace, next) => {
   console.log('Enter here');
-  next();
+  $.get('/check', (data) => {
+    if(data != true){
+      replace('/taikhoan/dangnhap');
+      console.log('Chua dang nhap');
+    }
+    next();
+  });
 }
 
 class App extends Component {
@@ -26,9 +32,9 @@ class App extends Component {
           <IndexRoute component={RaoVat}/>
           <Route path="lienhe" component={About}/>
           <Route path="tuyendung" component={TuyenDung}/>
-          <Route path="dangtin" component={DangTin}/>
+          <Route path="dangtin" component={DangTin} onEnter={checkLogin}/>
           <Route path="chitiet" component={ChiTiet}/>
-          <Route path="taikhoan/:com" component={TaiKhoan} onEnter={checkLogin}/>
+          <Route path="taikhoan/:com" component={TaiKhoan}/>
         </Route>
       </Router>
     )
@@ -38,4 +44,9 @@ class App extends Component {
 ReactDOM.render(
   <App/>,
   document.getElementById('root')
-)
+);
+//fix call twice
+//Chuc nang dang nhap
+//Chuc nang user id
+//Chuc nang duyet tin
+//Chuc nang admin

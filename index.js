@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 app.use(require('./controller/middleware'));
-var parser = require('body-parser').urlencoded({extended: false});
+var parser = require('body-parser').urlencoded({extended: true});
 var {query} = require('./db.js');
 
 app.set('view engine', 'ejs');

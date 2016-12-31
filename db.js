@@ -44,6 +44,8 @@ function insertDB(title, desc, name, phone, image, price, address, idDistrict, i
   query(sql, cb)
 }
 
+
+//Search function
 function getListProduct(cb){
   query('SELECT * FROM "RaoVat" ORDER BY "postTime" DESC', cb);
 }
@@ -65,4 +67,67 @@ function getProductByTieuMuc(id, cb){
 function getProductSearch(text, cb){
   query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%' + 'ORDER BY "postTime" DESC'`, cb)
 }
+//Sign in and Sign up
+
+var pg = require('pg');
+var config = {
+  user: 'postgres',
+  password: 'khoapham',
+  host: 'localhost',
+  port: 5432,
+  database: 'EmployeeDB',
+  max: 100,
+  idleTimeoutMillis: 1000
+}
+
+var pool = new pg.Pool(config);
+
+var {encrypt, decrypt} = require('./crypto.js');
+
+function queryDB(sql, cb){
+  var loi, kq;
+  pool.connect((err, client, done) => {
+    if(err){
+      loi = 'Loi ket noi :: ' + err;
+      return cb(loi, kq);
+    }
+    client.query(sql, (err, result) => {
+      if(err){
+        loi = 'Loi truy van :: ' + err;
+        return cb(loi, kq);
+      }
+      kq = result;
+      cb(loi, kq);
+    });
+  });
+}
+
+function inserUser(username, password, phone, image, fullname, phone){
+  return new Promise(function(resolve, reject) {
+    sql = `INSERT INTO "User"(username, password, phone, image, fullname, email)
+          VALUES ('${username}', '${encrypt(password)}', '${phone}', '${image}'), '${fullname}', '${phone}'`;
+    queryDB(sql, (err, result) => {
+      if(err) return reject(err)
+      resolve()
+    });
+  });
+}
+
+function checkLogin(username, password, cb){
+  var sql = `SELECT * FROM "User" WHERE username = '${username}'`;
+  queryDB(sql, (err, result) => {
+    if(err){
+      return cb(err);
+    }
+    if(result.rows[0]){
+      var dePass = decrypt(result.rows[0].password);
+      if(password == dePass){
+        return cb(undefined);
+      }
+      return cb('Sai password');
+    }
+    cb('Username khong ton tai');
+  });
+}
+
 module.exports = {query, getListProduct, getProduct, insertDB, getCategory, getProductByTieuMuc, getProductSearch};

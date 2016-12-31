@@ -11,6 +11,7 @@ class DangKy extends React.Component{
           <input type="text" placeholder="Nhập lại mật khẩu"/>
           <input type="text" placeholder="Số điện thoại"/>
           <input type="text" placeholder="Địa chỉ"/>
+          <input type="file" name="avatar"/>
           <button type="submit" className="button expanded">Đăng nhập</button>
         </form>
       </div>
