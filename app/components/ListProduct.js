@@ -15,7 +15,7 @@ export default class ListProduct extends Component {
     )
   }
   componentDidMount(){
-    $.get('/api/all', data => {
+    $.get(this.props.route, data => {
       this.state.mang = data;
       this.setState(this.state);
     })

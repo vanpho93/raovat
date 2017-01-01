@@ -133,6 +133,10 @@
 
 	var _TaiKhoan2 = _interopRequireDefault(_TaiKhoan);
 
+	var _Admin = __webpack_require__(282);
+
+	var _Admin2 = _interopRequireDefault(_Admin);
+
 	var _reactRouter = __webpack_require__(187);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -143,8 +147,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(282);
-	__webpack_require__(286);
+	__webpack_require__(283);
+	__webpack_require__(287);
 	$(document).foundation();
 
 	var checkLogin = function checkLogin(nextState, replace, next) {
@@ -181,7 +185,8 @@
 	          _react2.default.createElement(_reactRouter.Route, { path: 'tuyendung', component: _TuyenDung2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'dangtin', component: _DangTin2.default, onEnter: checkLogin }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'chitiet', component: _ChiTiet2.default }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'taikhoan/:com', component: _TaiKhoan2.default })
+	          _react2.default.createElement(_reactRouter.Route, { path: 'taikhoan/:com', component: _TaiKhoan2.default }),
+	          _react2.default.createElement(_reactRouter.Route, { path: 'admin', component: _Admin2.default })
 	        )
 	      );
 	    }
@@ -26786,7 +26791,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      $.get('/api/all', function (data) {
+	      $.get(this.props.route, function (data) {
 	        _this2.state.mang = data;
 	        _this2.setState(_this2.state);
 	      });
@@ -26940,7 +26945,7 @@
 	        'div',
 	        { className: 'view-main large-10 medium-8 columns' },
 	        _react2.default.createElement(_SearchForm2.default, null),
-	        _react2.default.createElement(_ListProduct2.default, null)
+	        _react2.default.createElement(_ListProduct2.default, { route: '/api/all' })
 	      );
 	    }
 	  }]);
@@ -27741,17 +27746,18 @@
 	        null,
 	        _react2.default.createElement(
 	          "form",
-	          null,
+	          { action: "/dangky", method: "post", encType: "multipart/form-data" },
 	          _react2.default.createElement(
 	            "h1",
 	            { className: "title-tai-khoan text-center" },
 	            "\u0110\u0103ng k\xFD t\xE0i kho\u1EA3n"
 	          ),
-	          _react2.default.createElement("input", { type: "text", placeholder: "username" }),
-	          _react2.default.createElement("input", { type: "text", placeholder: "password" }),
-	          _react2.default.createElement("input", { type: "text", placeholder: "Nh\u1EADp l\u1EA1i m\u1EADt kh\u1EA9u" }),
-	          _react2.default.createElement("input", { type: "text", placeholder: "S\u1ED1 \u0111i\u1EC7n tho\u1EA1i" }),
-	          _react2.default.createElement("input", { type: "text", placeholder: "\u0110\u1ECBa ch\u1EC9" }),
+	          _react2.default.createElement("input", { type: "text", placeholder: "username", name: "username" }),
+	          _react2.default.createElement("input", { type: "password", placeholder: "password", name: "password" }),
+	          _react2.default.createElement("input", { type: "password", placeholder: "password" }),
+	          _react2.default.createElement("input", { type: "text", placeholder: "H\u1ECD v\xE0 t\xEAn", name: "fullname" }),
+	          _react2.default.createElement("input", { type: "text", placeholder: "S\u1ED1 \u0111i\u1EC7n tho\u1EA1i", name: "phone" }),
+	          _react2.default.createElement("input", { type: "text", placeholder: "Email", name: "email" }),
 	          _react2.default.createElement("input", { type: "file", name: "avatar" }),
 	          _react2.default.createElement(
 	            "button",
@@ -29400,13 +29406,69 @@
 /* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(8);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ListProduct = __webpack_require__(242);
+
+	var _ListProduct2 = _interopRequireDefault(_ListProduct);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Admin = function (_React$Component) {
+	  _inherits(Admin, _React$Component);
+
+	  function Admin() {
+	    _classCallCheck(this, Admin);
+
+	    return _possibleConstructorReturn(this, (Admin.__proto__ || Object.getPrototypeOf(Admin)).apply(this, arguments));
+	  }
+
+	  _createClass(Admin, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_ListProduct2.default, { route: '/admin/unchecklist' })
+	      );
+	    }
+	  }]);
+
+	  return Admin;
+	}(_react2.default.Component);
+
+	module.exports = Admin;
+	/*
+	  Tâm lý chiến chút đi nạ,
+	  Không nhắn tin thì thôi, chết ai đâu mà lo
+	  Sao mà phải lo???
+	  Đời còn dài, gái còn đầy
+	  Không em này thì em khác
+	*/
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(283);
+	var content = __webpack_require__(284);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(285)(content, {});
+	var update = __webpack_require__(286)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -29423,10 +29485,10 @@
 	}
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(284)();
+	exports = module.exports = __webpack_require__(285)();
 	// imports
 
 
@@ -29437,7 +29499,7 @@
 
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports) {
 
 	/*
@@ -29493,7 +29555,7 @@
 
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -29745,16 +29807,16 @@
 
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(287);
+	var content = __webpack_require__(288);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(285)(content, {});
+	var update = __webpack_require__(286)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -29771,10 +29833,10 @@
 	}
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(284)();
+	exports = module.exports = __webpack_require__(285)();
 	// imports
 
 

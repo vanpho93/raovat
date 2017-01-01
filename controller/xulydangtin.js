@@ -3,13 +3,14 @@ var {insertDB} = require('../db.js');
 module.exports = (req, res) => {
   upload(req, res, err => {
     if(err) return res.send(err + '');
-    var {title, description, address, price, district, tieuMuc, name, phone} = req.body;
+    var {title, description, address, price, district, tieuMuc} = req.body;
+    var {idUser} = req.session;
     var filename = '';
     if(req.file){
       filename = req.file.filename;
     }
-    insertDB(title, description, name, phone, filename, price, address,
-      district, tieuMuc, (err, result) => {
+    insertDB(title, description, filename, price, address,
+      district, tieuMuc, idUser, (err, result) => {
       if(err) return res.send('Vui long kiem tra lai thong tin');
       res.redirect('/');
     })

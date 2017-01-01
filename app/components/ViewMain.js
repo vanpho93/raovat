@@ -7,7 +7,7 @@ class ViewMain extends React.Component{
     return (
       <div className="view-main large-10 medium-8 columns">
         <SearchForm/>
-        <ListProduct/>
+        <ListProduct route="/api/all"/>
       </div>
     )
   }

@@ -35,7 +35,8 @@ module.exports = {
       TaiKhoan: 'app/components/TaiKhoan.js',
       DangKy: 'app/components/DangKy.js',
       DangNhap: 'app/components/DangNhap.js',
-      ThongTinTaiKhoan: 'app/components/ThongTinTaiKhoan.js'
+      ThongTinTaiKhoan: 'app/components/ThongTinTaiKhoan.js',
+      Admin: 'app/components/Admin.js'
     }
   },
   module: {

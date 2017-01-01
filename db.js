@@ -23,9 +23,11 @@ var config = {
   idleTimeoutMillis: 500,
   max: 100
 }
+
 var pool = new pg.Pool(config);
 
 function query(sql, cb){
+  console.log(sql);
   pool.connect((err, client, done) => {
     if(err) return cb(err);
     done();
@@ -36,18 +38,18 @@ function query(sql, cb){
   });
 }
 
-function insertDB(title, desc, name, phone, image, price, address, idDistrict, idTieuMuc, cb){
+function insertDB(title, desc, image, price, address, idDistrict, idTieuMuc, idUser, cb){
   var sql = `INSERT INTO public."RaoVat"(
-	title, description, name, phone, image, address, "idQuan", price, "idTieuMuc")
-	VALUES ('${title}', '${desc}', '${name}', '${phone}', '${image}', '${address}', ${idTieuMuc}, ${price}, ${idTieuMuc});`
+	title, description, image, address, "idQuan", price, "idTieuMuc", "idUser")
+	VALUES ('${title}', '${desc}', '${image}', '${address}', ${idTieuMuc}, ${price}, ${idTieuMuc}, ${idUser});`
   //console.log(sql);
   query(sql, cb)
 }
 
-
+//================================================
 //Search function
 function getListProduct(cb){
-  query('SELECT * FROM "RaoVat" ORDER BY "postTime" DESC', cb);
+  query('SELECT * FROM "RaoVat" WHERE "isChecked" = true ORDER BY "postTime" DESC', cb);
 }
 
 function getCategory(cb){
@@ -56,31 +58,32 @@ function getCategory(cb){
 ON "TieuMuc"."idDanhMuc" = "DanhMuc"."id"`,cb);
 }
 
-function getProduct(id, cb){
-  query('SELECT * FROM "RaoVat" WHERE id = ' + id + 'ORDER BY "postTime" DESC', cb);
+function getProduct(id , cb){
+  query('SELECT * FROM "RaoVat" WHERE id = ' + id, cb);
 }
 
 function getProductByTieuMuc(id, cb){
-  query('SELECT * FROM "RaoVat" WHERE "idTieuMuc" = ' + id + 'ORDER BY "postTime" DESC', cb);
+  query('SELECT * FROM "RaoVat" WHERE "idTieuMuc" = ' + id + ' AND "isChecked" = true ORDER BY "postTime" DESC', cb);
 }
 
 function getProductSearch(text, cb){
-  query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%' + 'ORDER BY "postTime" DESC'`, cb)
+  query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%' AND isChecked = true ORDER BY "postTime" DESC'`, cb)
 }
+
+//Admin feature
+
+function getUncheck() {
+  var sql = `SELECT * FROM "RaoVat" WHERE "isChecked" = false`;
+  return new Promise((resolve, reject) => {
+    query(sql, (err, result) => {
+      if(err) return reject(err);
+      resolve(result.rows);
+    });
+  });
+}
+
+//================================================
 //Sign in and Sign up
-
-var pg = require('pg');
-var config = {
-  user: 'postgres',
-  password: 'khoapham',
-  host: 'localhost',
-  port: 5432,
-  database: 'EmployeeDB',
-  max: 100,
-  idleTimeoutMillis: 1000
-}
-
-var pool = new pg.Pool(config);
 
 var {encrypt, decrypt} = require('./crypto.js');
 
@@ -102,10 +105,11 @@ function queryDB(sql, cb){
   });
 }
 
-function inserUser(username, password, phone, image, fullname, phone){
+function insertUser(username, password, phone, image, fullname, email){
   return new Promise(function(resolve, reject) {
     sql = `INSERT INTO "User"(username, password, phone, image, fullname, email)
-          VALUES ('${username}', '${encrypt(password)}', '${phone}', '${image}'), '${fullname}', '${phone}'`;
+          VALUES ('${username}', '${encrypt(password)}', '${phone}', '${image}', '${fullname}', '${email}')`;
+    console.log(sql);
     queryDB(sql, (err, result) => {
       if(err) return reject(err)
       resolve()
@@ -122,12 +126,13 @@ function checkLogin(username, password, cb){
     if(result.rows[0]){
       var dePass = decrypt(result.rows[0].password);
       if(password == dePass){
-        return cb(undefined);
+        return cb(undefined, result.rows[0].id);
       }
       return cb('Sai password');
-    }
+    };
     cb('Username khong ton tai');
   });
 }
 
-module.exports = {query, getListProduct, getProduct, insertDB, getCategory, getProductByTieuMuc, getProductSearch};
+module.exports = {query, getListProduct, getProduct, insertDB, getCategory,
+  getProductByTieuMuc, getProductSearch, insertUser, checkLogin, getUncheck};
