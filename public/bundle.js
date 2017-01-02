@@ -28998,6 +28998,17 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	Number.prototype.formatMoney = function (c, d, t) {
+	  var n = this,
+	      c = isNaN(c = Math.abs(c)) ? 2 : c,
+	      d = d == undefined ? "." : d,
+	      t = t == undefined ? "," : t,
+	      s = n < 0 ? "-" : "",
+	      i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+	      j = (j = i.length) > 3 ? j % 3 : 0;
+	  return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+	};
+
 	var Product = function (_Component) {
 	  _inherits(Product, _Component);
 
@@ -29042,7 +29053,7 @@
 	              'div',
 	              null,
 	              'Gia: ',
-	              price,
+	              price.formatMoney(0, '.', ' '),
 	              ' d'
 	            ),
 	            _react2.default.createElement(
