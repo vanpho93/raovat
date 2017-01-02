@@ -33,6 +33,7 @@ hr{
 
 .p-start-time{
   float: right;
+  margin-right: 15px;
 }
 
 .title-dang-tin, .title-tai-khoan{

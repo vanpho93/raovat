@@ -32045,7 +32045,7 @@
 
 
 	// module
-	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n}\n\n.title-dang-tin, .title-tai-khoan{\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
+	exports.push([module.id, ".active{\n  font-weight: bold;\n}\n\n.nav-left{\n  background: #F8F6F6;\n}\n\n.view-main{\n  background: #D6E3ED;\n  margin-top: 20px;\n  border-radius: 10px;\n  padding: 10px;\n\n}\n\n.search-form{\n  margin-top: 40px;\n}\nhr{\n  visibility: hidden;\n}\n\n.div-product, .img-product, .div-product-info{\n  float: left;\n  margin: 10px;\n}\n\n.product-wrapper{\n  border: solid #F4F4F4 1px;\n  margin-top: 10px;\n}\n\n.p-start-time{\n  float: right;\n  margin-right: 15px;\n}\n\n.title-dang-tin, .title-tai-khoan{\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem;\n}\n\nbody{\n  background: #F8F6F6;\n}\n", ""]);
 
 	// exports
 
