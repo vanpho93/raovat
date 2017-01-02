@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
 
-export default class ChiTiet extends Component {
+export default class ChiTietAdmin extends Component {
   constructor(props){
     super(props);
     this.state = {id: 10000}
+  }
+  approve(){
+    var id = this.props.location.query.id;
+    $.post('/admin/approve',{id}, data => {
+      console.log(data);
+    });
   }
   render(){
     var {sanPham} = this.state;
@@ -23,6 +29,7 @@ export default class ChiTiet extends Component {
     return (
       <div className="small-8 medium-8 large-8 columns small-centered">
         {xhtml}
+        <button className="button expanded" onClick={this.approve.bind(this)}>Duyệt tin này</button>
       </div>
     )
   }

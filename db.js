@@ -49,7 +49,8 @@ function insertDB(title, desc, image, price, address, idDistrict, idTieuMuc, idU
 //================================================
 //Search function
 function getListProduct(cb){
-  query('SELECT * FROM "RaoVat" WHERE "isChecked" = true ORDER BY "postTime" DESC', cb);
+  query(`SELECT "RaoVat"."id", "postTime", "title", "description", "RaoVat"."image" as "image", "price", "fullname", "phone", "isChecked" FROM
+  ("RaoVat" JOIN "User" ON "RaoVat"."idUser" = "User"."id") WHERE "isChecked" = true ORDER BY "postTime" DESC`, cb);
 }
 
 function getCategory(cb){
@@ -59,15 +60,16 @@ ON "TieuMuc"."idDanhMuc" = "DanhMuc"."id"`,cb);
 }
 
 function getProduct(id , cb){
-  query('SELECT * FROM "RaoVat" WHERE id = ' + id, cb);
-}
+  query(`SELECT "a"."id", "postTime", "title", "address", "description", "a"."image", "fullname", "phone" FROM (
+  (SELECT "RaoVat"."id", "postTime", "title", "address", "description", "RaoVat"."image", "idUser" FROM "RaoVat" WHERE id = ${id}) AS "a"
+  JOIN "User" ON "a"."idUser" = "User".id)`, cb)}
 
 function getProductByTieuMuc(id, cb){
   query('SELECT * FROM "RaoVat" WHERE "idTieuMuc" = ' + id + ' AND "isChecked" = true ORDER BY "postTime" DESC', cb);
 }
 
 function getProductSearch(text, cb){
-  query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%' AND isChecked = true ORDER BY "postTime" DESC'`, cb)
+  query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%' AND "isChecked" = true ORDER BY "postTime" DESC`, cb)
 }
 
 //Admin feature
@@ -134,5 +136,15 @@ function checkLogin(username, password, cb){
   });
 }
 
+function approve(id){
+  return new Promise((resolve, reject) => {
+    var sql = `UPDATE "RaoVat" SET "isChecked" = true WHERE id = ${id}`
+    query(sql, (err, result) => {
+      if(err) return reject(err);
+      resolve();
+    });
+  });
+}
+
 module.exports = {query, getListProduct, getProduct, insertDB, getCategory,
-  getProductByTieuMuc, getProductSearch, insertUser, checkLogin, getUncheck};
+  getProductByTieuMuc, getProductSearch, insertUser, checkLogin, getUncheck, approve};

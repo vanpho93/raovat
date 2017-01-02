@@ -34,5 +34,6 @@ app.post('/dangnhap', parser, require('./controller/dangnhap.js'));
 app.post('/dangky', parser, require('./controller/dangky.js'));
 app.get('/check', require('./controller/checkLogin.js'));
 
-//Check insert product
+//Admin features
 app.get('/admin/unchecklist', require('./controller/adminGetUncheck.js'));
+app.post('/admin/approve', parser, require('./controller/adminApprove'));

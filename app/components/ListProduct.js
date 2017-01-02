@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Product from 'Product';
+
 export default class ListProduct extends Component {
   constructor(props){
     super(props);
@@ -8,9 +9,10 @@ export default class ListProduct extends Component {
   }
   render(){
     var {mang} = this.state;
+    var {toDetail} = this.props;
     return (
       <div>
-        {mang.map(e => <Product key={e.id} info={e}/>)}
+        {mang.map(e => <Product key={e.id} info={e} toDetail={toDetail}/>)}
       </div>
     )
   }

@@ -8,6 +8,7 @@ import DangTin from 'DangTin';
 import ChiTiet from 'ChiTiet';
 import TaiKhoan from 'TaiKhoan';
 import Admin from 'Admin';
+import ChiTietAdmin from 'ChiTietAdmin';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
 require('style!css!foundation-sites/dist/foundation.min.css');
@@ -37,6 +38,7 @@ class App extends Component {
           <Route path="chitiet" component={ChiTiet}/>
           <Route path="taikhoan/:com" component={TaiKhoan}/>
           <Route path="admin" component={Admin}/>
+          <Route path="chitietAdmin" component={ChiTietAdmin}/>
         </Route>
       </Router>
     )

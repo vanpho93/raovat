@@ -36,7 +36,8 @@ module.exports = {
       DangKy: 'app/components/DangKy.js',
       DangNhap: 'app/components/DangNhap.js',
       ThongTinTaiKhoan: 'app/components/ThongTinTaiKhoan.js',
-      Admin: 'app/components/Admin.js'
+      Admin: 'app/components/Admin.js',
+      ChiTietAdmin: 'app/components/ChiTietAdmin.js'
     }
   },
   module: {
