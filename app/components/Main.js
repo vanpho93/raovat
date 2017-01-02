@@ -26,7 +26,6 @@ class Main extends Component {
       dispatch({type: 'LOAD_PRODUCT_ARRAY', array: data});
     });
     $.get('/api/district', data => {
-      console.log('District',data);
       dispatch({type: 'LOAD_DISTRICT_ARRAY', array: data})
     })
   }

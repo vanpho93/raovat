@@ -3,11 +3,11 @@ import {connect} from "react-redux";
 
 class SearchForm extends React.Component{
   handleSubmit(e){
+    var {dispatch} = this.props;
     e.preventDefault();
-    $.post('/api/search', {text: this.refs.txt.value}, info => {
-      console.log(info);
-      that.state.mang = info;
-      that.setState(that.state);
+    $.post('/api/search', {text: this.refs.txt.value}, data => {
+      console.log(data);
+      dispatch({type: 'LOAD_PRODUCT_ARRAY', array: data});
     });
   }
   render(){

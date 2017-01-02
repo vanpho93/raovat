@@ -8,7 +8,7 @@ export default class ChiTietAdmin extends Component {
   approve(){
     var id = this.props.location.query.id;
     $.post('/admin/approve',{id}, data => {
-      console.log(data);
+      window.location = '/#/admin';
     });
   }
   render(){

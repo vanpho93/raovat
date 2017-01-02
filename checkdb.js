@@ -1,7 +1,5 @@
-var {query, getListProduct, getProduct, insertDB, getCategory,
-  getProductByTieuMuc, getProductSearch, insertUser, checkLogin, getUncheck} = require('./db.js');
+var {getProductByCategory} = require('./db.js');
 
-getProductSearch('hfa', (err, result) => {
-  if(err) return console.log('That bai: ' + err);
-  console.log(result.rows);
-})
+getProductByCategory(1)
+.then(rows => console.log(rows))
+.catch(err => console.log(err + ''))

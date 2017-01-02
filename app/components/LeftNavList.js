@@ -5,7 +5,10 @@ class LeftNavList extends React.Component{
     super(props);
   }
   searchByCategory(id){
-    console.log(id);
+    var {dispatch} = this.props;
+    $.get('/api/searchByCategory/'+id, data => {
+      dispatch({type: 'LOAD_PRODUCT_ARRAY', array: data});
+    });
   }
   render(){
     var {arrayGroup} = this.props;

@@ -21730,7 +21730,6 @@
 	        dispatch({ type: 'LOAD_PRODUCT_ARRAY', array: data });
 	      });
 	      $.get('/api/district', function (data) {
-	        console.log('District', data);
 	        dispatch({ type: 'LOAD_DISTRICT_ARRAY', array: data });
 	      });
 	    }
@@ -28912,11 +28911,7 @@
 /* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -28927,6 +28922,8 @@
 	var _Product = __webpack_require__(279);
 
 	var _Product2 = _interopRequireDefault(_Product);
+
+	var _reactRedux = __webpack_require__(242);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28952,34 +28949,25 @@
 	  _createClass(ListProduct, [{
 	    key: 'render',
 	    value: function render() {
-	      var mang = this.state.mang;
+	      var mangSanPham = this.props.mangSanPham;
 	      var toDetail = this.props.toDetail;
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        mang.map(function (e) {
+	        mangSanPham.map(function (e) {
 	          return _react2.default.createElement(_Product2.default, { key: e.id, info: e, toDetail: toDetail });
 	        })
 	      );
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      $.get(this.props.route, function (data) {
-	        _this2.state.mang = data;
-	        _this2.setState(_this2.state);
-	      });
 	    }
 	  }]);
 
 	  return ListProduct;
 	}(_react.Component);
 
-	exports.default = ListProduct;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+	module.exports = (0, _reactRedux.connect)(function (state) {
+	  return { mangSanPham: state.mangSanPham };
+	})(ListProduct);
 
 /***/ },
 /* 279 */
@@ -29168,11 +29156,12 @@
 	  _createClass(SearchForm, [{
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
+	      var dispatch = this.props.dispatch;
+
 	      e.preventDefault();
-	      $.post('/api/search', { text: this.refs.txt.value }, function (info) {
-	        console.log(info);
-	        that.state.mang = info;
-	        that.setState(that.state);
+	      $.post('/api/search', { text: this.refs.txt.value }, function (data) {
+	        console.log(data);
+	        dispatch({ type: 'LOAD_PRODUCT_ARRAY', array: data });
 	      });
 	    }
 	  }, {
@@ -29367,7 +29356,7 @@
 /* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -29397,7 +29386,11 @@
 	  _createClass(LeftNavList, [{
 	    key: 'searchByCategory',
 	    value: function searchByCategory(id) {
-	      console.log(id);
+	      var dispatch = this.props.dispatch;
+
+	      $.get('/api/searchByCategory/' + id, function (data) {
+	        dispatch({ type: 'LOAD_PRODUCT_ARRAY', array: data });
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -29437,6 +29430,7 @@
 	module.exports = (0, _reactRedux.connect)(function (state) {
 	  return { arrayGroup: state.mangCategory };
 	})(LeftNavList);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
 /* 285 */
@@ -31486,7 +31480,7 @@
 /* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -31497,6 +31491,8 @@
 	var _ListProduct = __webpack_require__(278);
 
 	var _ListProduct2 = _interopRequireDefault(_ListProduct);
+
+	var _reactRedux = __webpack_require__(242);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31524,12 +31520,22 @@
 	        _react2.default.createElement(_ListProduct2.default, { route: '/admin/unchecklist', toDetail: '/chitietAdmin' })
 	      );
 	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var dispatch = this.props.dispatch;
+
+	      $.get('/admin/unchecklist', function (data) {
+	        dispatch({ type: 'LOAD_PRODUCT_ARRAY', array: data });
+	      });
+	    }
 	  }]);
 
 	  return Admin;
 	}(_react2.default.Component);
 
-	module.exports = Admin;
+	module.exports = (0, _reactRedux.connect)()(Admin);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
 /* 318 */
@@ -31572,7 +31578,7 @@
 	    value: function approve() {
 	      var id = this.props.location.query.id;
 	      $.post('/admin/approve', { id: id }, function (data) {
-	        console.log(data);
+	        window.location = '/#/admin';
 	      });
 	    }
 	  }, {

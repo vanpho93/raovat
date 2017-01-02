@@ -39,8 +39,8 @@ app.post('/testUpload', require('./controller/testUpload.js'));
 //Search features
 app.get('/api/getById/:id', require('./controller/getId.js'));
 app.get('/api/all', require('./controller/getAll.js'));
-app.get('/api/getByTieuMuc/:id', require('./controller/getByTieuMuc.js'));
 app.post('/api/search/', parser, require('./controller/getBySearch.js'));
+app.get('/api/searchByCategory/:id', require('./controller/getByCategory.js'));
 
 //preload route
 app.get('/api/district', (req, res) => res.send(mangDistricts));

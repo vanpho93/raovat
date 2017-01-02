@@ -1,33 +1,9 @@
 var pg = require('pg');
 
 // For Heroku
-var URI = 'postgres://kyreohmtxstplx:e4ccbccdabbefcecc52c1f1fa263a4333a6b265fb1d970750151060538b279b7@ec2-54-221-210-126.compute-1.amazonaws.com:5432/d3sdrm0knuaur9';
-function query(sql, cb){
-  pg.connect(URI, (err, client, done) => {
-    if(err) return cb(err);
-    done();
-    client.query(sql, (err, result) => {
-      if(err) return cb(err);
-      return cb(err, result);
-    });
-  });
-}
-
-// For localhost
-// var config = {
-//   user: 'postgres',
-//   password: 'khoapham',
-//   host: 'localhost',
-//   port: 5432,
-//   database: 'RaoVatSaiGon',
-//   idleTimeoutMillis: 500,
-//   max: 100
-// }
-//
-// var pool = new pg.Pool(config);
-//
+// var URI = 'postgres://kyreohmtxstplx:e4ccbccdabbefcecc52c1f1fa263a4333a6b265fb1d970750151060538b279b7@ec2-54-221-210-126.compute-1.amazonaws.com:5432/d3sdrm0knuaur9';
 // function query(sql, cb){
-//   pool.connect((err, client, done) => {
+//   pg.connect(URI, (err, client, done) => {
 //     if(err) return cb(err);
 //     done();
 //     client.query(sql, (err, result) => {
@@ -36,6 +12,30 @@ function query(sql, cb){
 //     });
 //   });
 // }
+
+// For localhost
+var config = {
+  user: 'postgres',
+  password: 'khoapham',
+  host: 'localhost',
+  port: 5432,
+  database: 'RaoVatSaiGon',
+  idleTimeoutMillis: 500,
+  max: 100
+}
+
+var pool = new pg.Pool(config);
+
+function query(sql, cb){
+  pool.connect((err, client, done) => {
+    if(err) return cb(err);
+    done();
+    client.query(sql, (err, result) => {
+      if(err) return cb(err);
+      return cb(err, result);
+    });
+  });
+}
 
 function insertDB(title, desc, image, price, address, idDistrict, idDanhMuc, idUser, cb){
   var sql = `INSERT INTO public."RaoVat"(
@@ -70,6 +70,15 @@ function getProductSearch(text, cb){
   query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%' AND "isChecked" = true ORDER BY "postTime" DESC`, cb)
 }
 
+function getProductByCategory(id){
+  return new Promise(function(resolve, reject) {
+    query(`SELECT * FROM "RaoVat" WHERE "idDanhMuc" = ${id} AND "isChecked" = true ORDER BY "postTime" DESC`,
+      (err, result) => {
+        if(err) return reject(err);
+        resolve(result.rows);
+      })
+  });
+}
 //Admin feature
 
 function getUncheck() {
@@ -156,4 +165,4 @@ function getDistricts() {
 }
 
 module.exports = {query, getListProduct, getProduct, insertDB, getCategory, getProductSearch, insertUser, checkLogin, getUncheck, approve,
-getDistricts};
+getDistricts, getProductByCategory};

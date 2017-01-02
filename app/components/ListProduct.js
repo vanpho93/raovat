@@ -1,25 +1,24 @@
 import React, {Component} from 'react';
 import Product from 'Product';
+import {connect} from 'react-redux';
 
-export default class ListProduct extends Component {
+class ListProduct extends Component {
   constructor(props){
     super(props);
     this.state = {mang: []};
     that = this;
   }
   render(){
-    var {mang} = this.state;
+    var {mangSanPham} = this.props;
     var {toDetail} = this.props;
     return (
       <div>
-        {mang.map(e => <Product key={e.id} info={e} toDetail={toDetail}/>)}
+        {mangSanPham.map(e => <Product key={e.id} info={e} toDetail={toDetail}/>)}
       </div>
     )
   }
-  componentDidMount(){
-    $.get(this.props.route, data => {
-      this.state.mang = data;
-      this.setState(this.state);
-    });
-  }
 }
+
+module.exports = connect(function(state){
+  return {mangSanPham: state.mangSanPham}
+})(ListProduct);
