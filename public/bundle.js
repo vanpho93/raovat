@@ -29198,7 +29198,7 @@
 	              _react2.default.createElement(
 	                'option',
 	                null,
-	                ' Ch\u1ECDn danh m\u1EE5c '
+	                '--Ch\u1ECDn danh m\u1EE5c--'
 	              ),
 	              this.props.mangCategory.map(function (e) {
 	                return _react2.default.createElement(
@@ -29236,7 +29236,7 @@
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'button', type: 'submit' },
-	              'Tim kiem'
+	              'T\xECm ki\u1EBFm'
 	            )
 	          )
 	        )
@@ -29374,10 +29374,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemNavLeft = __webpack_require__(285);
-
-	var _ItemNavLeft2 = _interopRequireDefault(_ItemNavLeft);
-
 	var _reactRedux = __webpack_require__(244);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -29398,16 +29394,38 @@
 	  }
 
 	  _createClass(LeftNavList, [{
+	    key: 'searchByCategory',
+	    value: function searchByCategory(id) {
+	      console.log(id);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var arrayGroup = this.props.arrayGroup;
 
+	      console.log('Array Group: ', arrayGroup);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'nav-left medium-4 large-2 columns float-left hide-for-small-only' },
-	        arrayGroup.map(function (e, i) {
-	          return _react2.default.createElement(_ItemNavLeft2.default, { title: e.title, listItem: e.listItem, key: e.title });
-	        })
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          arrayGroup.map(function (e, i) {
+	            return _react2.default.createElement(
+	              'li',
+	              { key: e.title },
+	              _react2.default.createElement(
+	                'a',
+	                { onClick: function onClick() {
+	                    return _this2.searchByCategory(e.id);
+	                  } },
+	                e.title
+	              )
+	            );
+	          })
+	        )
 	      );
 	    }
 	  }]);
@@ -29420,107 +29438,7 @@
 	})(LeftNavList);
 
 /***/ },
-/* 285 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(8);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ItemNavLeft = function (_React$Component) {
-	  _inherits(ItemNavLeft, _React$Component);
-
-	  function ItemNavLeft(props) {
-	    _classCallCheck(this, ItemNavLeft);
-
-	    var _this = _possibleConstructorReturn(this, (ItemNavLeft.__proto__ || Object.getPrototypeOf(ItemNavLeft)).call(this, props));
-
-	    _this.state = { isShow: true };
-	    return _this;
-	  }
-
-	  _createClass(ItemNavLeft, [{
-	    key: "toggle",
-	    value: function toggle() {
-	      this.state.isShow = !this.state.isShow;
-	      this.setState(this.state);
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      var _this2 = this;
-
-	      var _props = this.props,
-	          title = _props.title,
-	          listItem = _props.listItem;
-
-	      var xhtml = this.state.isShow ? null : listItem.map(function (e) {
-	        return _react2.default.createElement(
-	          "div",
-	          { key: e.id },
-	          _react2.default.createElement(
-	            "a",
-	            { onClick: function onClick() {
-	                _this2.getList(e.id);
-	              } },
-	            e.tieuMuc
-	          )
-	        );
-	      });
-	      var icon = this.state.isShow ? "►" : "▼";
-	      return _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement(
-	          "div",
-	          null,
-	          _react2.default.createElement(
-	            "span",
-	            { onClick: this.toggle.bind(this) },
-	            icon
-	          ),
-	          title
-	        ),
-	        _react2.default.createElement(
-	          "ul",
-	          { className: "list-item-left-nav" },
-	          xhtml
-	        )
-	      );
-	    }
-	  }, {
-	    key: "getList",
-	    value: function getList(id) {
-	      $.get('/api/getByTieuMuc/' + id, function (data) {
-	        that.state.mang = data;
-	        that.setState(that.state);
-	      });
-	    }
-	  }]);
-
-	  return ItemNavLeft;
-	}(_react2.default.Component);
-
-	exports.default = ItemNavLeft;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ },
+/* 285 */,
 /* 286 */
 /***/ function(module, exports, __webpack_require__) {
 

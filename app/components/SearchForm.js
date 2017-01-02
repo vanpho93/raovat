@@ -19,9 +19,10 @@ class SearchForm extends React.Component{
         </div>
         <div className="columns medium-3">
           <select>
-            <option> Chọn danh mục </option>
+            <option>--Chọn danh mục--</option>
             {
-              this.props.mangCategory.map(e => <option value={e.id} key={e.title}>{e.title}</option>)
+              this.props.mangCategory.map(e =>
+                <option value={e.id} key={e.title}>{e.title}</option>)
             }
           </select>
         </div>
@@ -33,7 +34,7 @@ class SearchForm extends React.Component{
           </select>
         </div>
         <div className="columns medium-2">
-          <button className="button" type="submit">Tim kiem</button>
+          <button className="button" type="submit">Tìm kiếm</button>
         </div>
       </div>
     </form>

@@ -37,10 +37,10 @@ function query(sql, cb){
   });
 }
 
-function insertDB(title, desc, image, price, address, idDistrict, idTieuMuc, idUser, cb){
+function insertDB(title, desc, image, price, address, idDistrict, idDanhMuc, idUser, cb){
   var sql = `INSERT INTO public."RaoVat"(
-	title, description, image, address, "idQuan", price, "idTieuMuc", "idUser")
-	VALUES ('${title}', '${desc}', '${image}', '${address}', ${idTieuMuc}, ${price}, ${idTieuMuc}, ${idUser});`
+	title, description, image, address, "idQuan", price, "idDanhMuc", "idUser")
+	VALUES ('${title}', '${desc}', '${image}', '${address}', ${idDistrict}, ${price}, ${idDanhMuc}, ${idUser});`
   //console.log(sql);
   query(sql, cb)
 }
@@ -53,19 +53,13 @@ function getListProduct(cb){
 }
 
 function getCategory(cb){
-  query(`SELECT "TieuMuc"."id", "TieuMuc"."tenTieuMuc", "DanhMuc"."id" AS "idDanhMuc", "DanhMuc"."tenDanhMuc" FROM
-"TieuMuc" JOIN "DanhMuc"
-ON "TieuMuc"."idDanhMuc" = "DanhMuc"."id"`,cb);
+  query(`SELECT * FROM "DanhMuc"`,cb);
 }
 
 function getProduct(id , cb){
   query(`SELECT "a"."id", "postTime", "title", "address", "description", "a"."image", "fullname", "phone" FROM (
   (SELECT "RaoVat"."id", "postTime", "title", "address", "description", "RaoVat"."image", "idUser" FROM "RaoVat" WHERE id = ${id}) AS "a"
   JOIN "User" ON "a"."idUser" = "User".id)`, cb)}
-
-function getProductByTieuMuc(id, cb){
-  query('SELECT * FROM "RaoVat" WHERE "idTieuMuc" = ' + id + ' AND "isChecked" = true ORDER BY "postTime" DESC', cb);
-}
 
 function getProductSearch(text, cb){
   query(`SELECT * FROM "RaoVat" WHERE lower("title") LIKE '%${text}%' AND "isChecked" = true ORDER BY "postTime" DESC`, cb)
@@ -156,6 +150,5 @@ function getDistricts() {
   });
 }
 
-module.exports = {query, getListProduct, getProduct, insertDB, getCategory,
-  getProductByTieuMuc, getProductSearch, insertUser, checkLogin, getUncheck, approve,
+module.exports = {query, getListProduct, getProduct, insertDB, getCategory, getProductSearch, insertUser, checkLogin, getUncheck, approve,
 getDistricts};
