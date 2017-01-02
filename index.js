@@ -40,7 +40,7 @@ app.get('/api/getByTieuMuc/:id', require('./controller/getByTieuMuc.js'));
 app.post('/api/search/', parser, require('./controller/getBySearch.js'));
 
 app.get('/api/district', (req, res) => res.send(mangDistricts));
-app.get('/api/category', require('controller/getCategory.js'));
+app.get('/api/category', require('./controller/getCategory.js'));
 
 //User features
 app.post('/xulydangtin', require('./controller/xulydangtin.js'));
