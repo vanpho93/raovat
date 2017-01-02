@@ -26,7 +26,7 @@ export default class Product extends Component {
           <img src={image} width="50px" className="img-product"/>
           <div className="div-product-info">
             <Link to={`${toDetail}?id=${id}`}>{title}</Link>
-            <div>Gia: {price.formatMoney(0, '.', ' ')} d</div>
+            <div>Gia: {parseInt(price).formatMoney(0, '.', '.')} d</div>
             <a href="#">{address}</a>
           </div>
         </div>

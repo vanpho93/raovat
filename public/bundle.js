@@ -29053,7 +29053,7 @@
 	              'div',
 	              null,
 	              'Gia: ',
-	              price.formatMoney(0, '.', ' '),
+	              parseInt(price).formatMoney(0, '.', '.'),
 	              ' d'
 	            ),
 	            _react2.default.createElement(
