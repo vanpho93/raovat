@@ -1,6 +1,6 @@
 var pg = require('pg');
 
-//For Heroku
+// For Heroku
 var URI = 'postgres://kyreohmtxstplx:e4ccbccdabbefcecc52c1f1fa263a4333a6b265fb1d970750151060538b279b7@ec2-54-221-210-126.compute-1.amazonaws.com:5432/d3sdrm0knuaur9';
 function query(sql, cb){
   pg.connect(URI, (err, client, done) => {

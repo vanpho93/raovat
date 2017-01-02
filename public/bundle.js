@@ -29412,7 +29412,7 @@
 	        { className: 'nav-left medium-4 large-2 columns float-left hide-for-small-only' },
 	        _react2.default.createElement(
 	          'ul',
-	          null,
+	          { className: 'menu vertical' },
 	          arrayGroup.map(function (e, i) {
 	            return _react2.default.createElement(
 	              'li',
