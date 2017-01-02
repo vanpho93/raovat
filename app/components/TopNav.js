@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import {Link, IndexLink} from 'react-router';
+import {connect} from 'react-redux';
 
-export default class Main extends Component {
+class TopNav extends Component {
   render(){
+    console.log('Render');
+    var xhtml = this.props.username?
+      <li><Link to="/taikhoan/thongtintaikhoan">{this.props.username}</Link></li>
+      :<li><Link to="/taikhoan/dangnhap" activeClassName="active">Tài khoản</Link></li>;
     return (
       <div className="top-bar">
         <div className="top-bar-left">
@@ -17,12 +22,16 @@ export default class Main extends Component {
         <div className="top-bar-right">
           <ul className="menu">
             <li><Link to="/dangtin" activeClassName="active">Đăng tin</Link></li>
-            <li><Link to="/taikhoan/dangnhap" activeClassName="active">Tài khoản</Link></li>
-            <li><input type="search" placeholder="Search"/></li>
-            <li><button type="button" className="button">Search</button></li>
+            {xhtml}
+            <li><input type="search" placeholder="Bạn muốn tìm gì?"/></li>
+            <li><button type="button" className="button">Tìm kiếm</button></li>
           </ul>
         </div>
       </div>
     )
   }
 }
+
+module.exports = connect(function(state){
+  return {username: state.user}
+})(TopNav);

@@ -20,6 +20,6 @@ export default class ListProduct extends Component {
     $.get(this.props.route, data => {
       this.state.mang = data;
       this.setState(this.state);
-    })
+    });
   }
 }

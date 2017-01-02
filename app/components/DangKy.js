@@ -13,7 +13,7 @@ class DangKy extends React.Component{
           <input type="text" placeholder="Số điện thoại" name="phone"/>
           <input type="text" placeholder="Email" name="email"/>
           <input type="file" name="avatar"/>
-          <button type="submit" className="button expanded">Đăng nhập</button>
+          <button type="submit" className="button expanded">Đăng ký</button>
         </form>
       </div>
     );

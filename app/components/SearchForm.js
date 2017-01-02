@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from "react-redux";
 
 class SearchForm extends React.Component{
   handleSubmit(e){
@@ -14,23 +15,21 @@ class SearchForm extends React.Component{
       <form onSubmit={this.handleSubmit.bind(this)}>
       <div className="row search-form">
         <div className="columns medium-4">
-          <input type="text" placeholder="Search" ref="txt"/>
+          <input type="text" placeholder="Tên sản phẩm" ref="txt"/>
         </div>
         <div className="columns medium-3">
           <select>
-            <option>--Chon danh muc--</option>
-            <option>Dien thoai</option>
-            <option>May tinh</option>
-            <option>Tivi</option>
+            <option> Chọn danh mục </option>
+            {
+              this.props.mangCategory.map(e => <option value={e.id} key={e.title}>{e.title}</option>)
+            }
           </select>
         </div>
         <div className="columns medium-3">
           <select>
-            <option>Chon dia diem</option>
-            <option>Quan 1</option>
-            <option>Quan 2</option>
-            <option>Quan 3</option>
-            <option>Quan 4</option>
+            <option>-- Chọn địa điểm --</option>
+            {this.props.mangDistricts.map(e => <option
+              value={e.id} key={e.id}>{e.tenQuan}</option>)}
           </select>
         </div>
         <div className="columns medium-2">
@@ -42,4 +41,9 @@ class SearchForm extends React.Component{
   }
 }
 
-module.exports = SearchForm;
+module.exports = connect(function(state){
+  return {
+    mangDistricts: state.mangDistricts,
+    mangCategory: state.mangCategory
+  }
+})(SearchForm);

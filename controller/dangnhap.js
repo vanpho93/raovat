@@ -7,6 +7,6 @@ module.exports = (req, res) => {
     }
     req.session.isLogin = true;
     req.session.idUser = idUser;
-    res.send('DANG_NHAP_THANH_CONG')
+    res.send(username);
   });
 };

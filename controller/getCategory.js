@@ -1,14 +1,17 @@
 var {getCategory} = require('../db.js');
-module.exports = (req, res) => {
-  if(mangGroup.length == 0){
+module.exports = loadCategory;
+
+var mangGroup = [];
+
+function loadCategory(){
+  return new Promise(function(resolve, reject) {
     getCategory((err, result) => {
-        initGroup(result.rows);
-        addData(result.rows);
-      res.send(mangGroup);
+      if(err) return reject(err);
+      initGroup(result.rows);
+      addData(result.rows);
+      return resolve(mangGroup);
     });
-  }else{
-    res.send(mangGroup);
-  }
+  });
 }
 
 function Group(title){
@@ -21,7 +24,6 @@ function Item(id, tieuMuc){
   this.tieuMuc = tieuMuc;
 }
 
-var mangGroup = [];
 
 function initGroup(arrRaw){
   arrRaw.forEach(raw => {

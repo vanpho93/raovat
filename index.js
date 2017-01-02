@@ -8,7 +8,25 @@ var favicon = require('serve-favicon');
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(favicon(__dirname + '/public/favicon.ico'))
-app.listen(process.env.PORT || 3000, () => console.log('Server started'))
+
+//Prepare for server
+var mangGroup;
+var mangDistricts;
+var {getDistricts} = require('./db.js');
+var loadCategory = require('./controller/getCategory.js');
+
+loadCategory()
+.then(mang => {
+  mangGroup = mang;
+})
+.then(() => getDistricts())
+.then(rows => {
+  mangDistricts = rows;
+  app.listen(3000, () => console.log('Server started'))
+})
+.catch(err => console.log(err + ''));
+
+//Main route
 app.get('/', (req, res) => res.render('home'));
 
 //Test features
@@ -24,9 +42,11 @@ app.post('/testUpload', require('./controller/testUpload.js'));
 //Search features
 app.get('/api/getById/:id', require('./controller/getId.js'));
 app.get('/api/all', require('./controller/getAll.js'));
-app.get('/api/category', require('./controller/getCategory.js'));
 app.get('/api/getByTieuMuc/:id', require('./controller/getByTieuMuc.js'));
 app.post('/api/search/', parser, require('./controller/getBySearch.js'));
+
+app.get('/api/district', (req, res) => res.send(mangDistricts));
+app.get('/api/category', (req, res) => res.send(mangGroup));
 
 //User features
 app.post('/xulydangtin', require('./controller/xulydangtin.js'));

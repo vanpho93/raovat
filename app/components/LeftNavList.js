@@ -1,12 +1,12 @@
 import React from 'react';
 import ItemNavLeft from 'ItemNavLeft';
-export default class LeftNavList extends React.Component{
+import {connect} from 'react-redux';
+class LeftNavList extends React.Component{
   constructor(props){
     super(props);
-    this.state = {arrayGroup: []};
   }
   render(){
-    var {arrayGroup} = this.state;
+    var {arrayGroup} = this.props;
     return (
       <div className="nav-left medium-4 large-2 columns float-left hide-for-small-only">
           {
@@ -16,10 +16,8 @@ export default class LeftNavList extends React.Component{
       </div>
     )
   }
-  componentDidMount(){
-    $.get('/api/category', data => {
-      this.state.arrayGroup = data;
-      this.setState(this.state);
-    });
-  }
 }
+
+module.exports = connect(function(state){
+  return {arrayGroup: state.mangCategory}
+})(LeftNavList);

@@ -27,7 +27,6 @@ var config = {
 var pool = new pg.Pool(config);
 
 function query(sql, cb){
-  console.log(sql);
   pool.connect((err, client, done) => {
     if(err) return cb(err);
     done();
@@ -128,7 +127,7 @@ function checkLogin(username, password, cb){
     if(result.rows[0]){
       var dePass = decrypt(result.rows[0].password);
       if(password == dePass){
-        return cb(undefined, result.rows[0].id);
+        return cb(undefined, result.rows[0].id, result.rows[0].fullname);
       }
       return cb('Sai password');
     };
@@ -146,5 +145,17 @@ function approve(id){
   });
 }
 
+//================================================
+//Server prepare
+function getDistricts() {
+  return new Promise(function(resolve, reject) {
+    query('SELECT * FROM "District"', (err, result) => {
+      if(err) return reject(err);
+      resolve(result.rows);
+    });
+  });
+}
+
 module.exports = {query, getListProduct, getProduct, insertDB, getCategory,
-  getProductByTieuMuc, getProductSearch, insertUser, checkLogin, getUncheck, approve};
+  getProductByTieuMuc, getProductSearch, insertUser, checkLogin, getUncheck, approve,
+getDistricts};
