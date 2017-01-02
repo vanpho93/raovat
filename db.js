@@ -53,7 +53,12 @@ function getListProduct(cb){
 }
 
 function getCategory(cb){
-  query(`SELECT * FROM "DanhMuc"`,cb);
+  return new Promise(function(resolve, reject) {
+    query(`SELECT * FROM "DanhMuc"`, (err, result) => {
+      if(err) return reject(err);
+      return resolve(result.rows);
+    });
+  });
 }
 
 function getProduct(id , cb){

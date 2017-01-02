@@ -11,13 +11,16 @@ app.use(favicon(__dirname + '/public/favicon.ico'))
 
 //Prepare for server
 var mangDistricts;
-var {getDistricts} = require('./db.js');
+var mangCategory;
+var {getDistricts, getCategory} = require('./db.js');
 
 getDistricts()
 .then(rows => {
   mangDistricts = rows;
   app.listen(process.env.PORT || 3000, () => console.log('Server started'))
 })
+.then(() => getCategory())
+.then(rows => mangCategory = rows)
 .catch(err => console.log(err + ''));
 
 //Main route
@@ -39,8 +42,9 @@ app.get('/api/all', require('./controller/getAll.js'));
 app.get('/api/getByTieuMuc/:id', require('./controller/getByTieuMuc.js'));
 app.post('/api/search/', parser, require('./controller/getBySearch.js'));
 
+//preload route
 app.get('/api/district', (req, res) => res.send(mangDistricts));
-app.get('/api/category', require('./controller/getCategory.js'));
+app.get('/api/category', (req, res) => res.send(mangCategory));
 
 //User features
 app.post('/xulydangtin', require('./controller/xulydangtin.js'));
