@@ -13,7 +13,7 @@ function query(sql, cb){
   });
 }
 
-//For localhost
+// For localhost
 // var config = {
 //   user: 'postgres',
 //   password: 'khoapham',
