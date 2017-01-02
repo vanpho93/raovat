@@ -12,7 +12,6 @@ app.use(favicon(__dirname + '/public/favicon.ico'))
 //Prepare for server
 var mangDistricts;
 var {getDistricts} = require('./db.js');
-var loadCategory = require('./controller/getCategory.js');
 
 getDistricts()
 .then(rows => {
