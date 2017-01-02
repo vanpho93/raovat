@@ -15,14 +15,13 @@ class LeftNavList extends React.Component{
         <ul>
           {
             arrayGroup.map((e, i) =>
-            <li key={e.title}><a onClick={() => this.searchByCategory(e.id)}>{e.title}</a></li>)
+            <li key={e.id}><a onClick={() => this.searchByCategory(e.id)}>{e.tenDanhMuc}</a></li>)
           }
         </ul>
       </div>
     )
   }
 }
-
 module.exports = connect(function(state){
   return {arrayGroup: state.mangCategory}
 })(LeftNavList);

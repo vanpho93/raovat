@@ -29416,13 +29416,13 @@
 	          arrayGroup.map(function (e, i) {
 	            return _react2.default.createElement(
 	              'li',
-	              { key: e.title },
+	              { key: e.id },
 	              _react2.default.createElement(
 	                'a',
 	                { onClick: function onClick() {
 	                    return _this2.searchByCategory(e.id);
 	                  } },
-	                e.title
+	                e.tenDanhMuc
 	              )
 	            );
 	          })
