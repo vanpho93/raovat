@@ -1,3 +1,6 @@
 module.exports = (req, res) => {
-  res.send(req.session.isLogin);
+  res.send({
+    isLogin: req.session.isLogin,
+    username: req.session.username
+  });
 }

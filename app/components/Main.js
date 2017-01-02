@@ -27,7 +27,11 @@ class Main extends Component {
     });
     $.get('/api/district', data => {
       dispatch({type: 'LOAD_DISTRICT_ARRAY', array: data})
-    })
+    });
+    $.get('/check', data => {
+      console.log('CHECK LOGIN', data);
+      dispatch({type: 'SIGN_IN', username: data.username});
+    });
   }
 }
 

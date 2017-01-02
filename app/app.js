@@ -40,13 +40,12 @@ $(document).foundation();
 var checkLogin = (nextState, replace, next) => {
   console.log('Enter here');
   $.get('/check', (data) => {
-    if(data != true){
+    if(data.isLogin != true){
       replace('/taikhoan/dangnhap');
       console.log('Chua dang nhap');
     }
     next();
   });
-  $.get('/')
 }
 
 class App extends Component {

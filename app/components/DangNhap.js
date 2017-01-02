@@ -11,7 +11,6 @@ class DangNhap extends React.Component{
     var password = this.refs.password.value;
     console.log(username, password);
     $.post('/dangnhap', {username, password}, data => {
-      console.log(data);
       if(data != 'DANG_NHAP_THAT_BAI'){
         dispatch({type: 'SIGN_IN', username: data});
         window.location = '/#/';

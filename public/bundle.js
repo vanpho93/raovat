@@ -187,13 +187,12 @@
 	var checkLogin = function checkLogin(nextState, replace, next) {
 	  console.log('Enter here');
 	  $.get('/check', function (data) {
-	    if (data != true) {
+	    if (data.isLogin != true) {
 	      replace('/taikhoan/dangnhap');
 	      console.log('Chua dang nhap');
 	    }
 	    next();
 	  });
-	  $.get('/');
 	};
 
 	var App = function (_Component) {
@@ -21732,6 +21731,10 @@
 	      $.get('/api/district', function (data) {
 	        dispatch({ type: 'LOAD_DISTRICT_ARRAY', array: data });
 	      });
+	      $.get('/check', function (data) {
+	        console.log('CHECK LOGIN', data);
+	        dispatch({ type: 'SIGN_IN', username: data.username });
+	      });
 	    }
 	  }]);
 
@@ -29885,7 +29888,6 @@
 	      var password = this.refs.password.value;
 	      console.log(username, password);
 	      $.post('/dangnhap', { username: username, password: password }, function (data) {
-	        console.log(data);
 	        if (data != 'DANG_NHAP_THAT_BAI') {
 	          dispatch({ type: 'SIGN_IN', username: data });
 	          window.location = '/#/';
