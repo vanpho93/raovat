@@ -21,8 +21,8 @@ class SearchForm extends React.Component{
           <select>
             <option>--Chọn danh mục--</option>
             {
-              this.props.mangCategory.map(e =>
-                <option value={e.id} key={e.id}>{e.tenDanhMuc}</option>)
+              this.props.mangCategory.map(e => <option
+                value={e.id} key={e.id}>{e.tenDanhMuc}</option>)
             }
           </select>
         </div>
