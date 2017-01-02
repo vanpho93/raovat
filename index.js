@@ -16,7 +16,7 @@ var {getDistricts} = require('./db.js');
 getDistricts()
 .then(rows => {
   mangDistricts = rows;
-  app.listen(3000, () => console.log('Server started'))
+  app.listen(process.env.PORT || 3000, () => console.log('Server started'))
 })
 .catch(err => console.log(err + ''));
 
